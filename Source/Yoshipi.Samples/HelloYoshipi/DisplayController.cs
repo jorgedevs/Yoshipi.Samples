@@ -9,6 +9,8 @@ public class DisplayController
 {
     private readonly DisplayScreen displayScreen;
 
+    private Label label;
+
     public DisplayController(IPixelDisplay display)
     {
         displayScreen = new DisplayScreen(display, RotationType._270Degrees)
@@ -16,7 +18,7 @@ public class DisplayController
             BackgroundColor = Color.FromHex("14607F")
         };
 
-        displayScreen.Controls.Add(new Label(
+        label = new Label(
             left: 0,
             top: 0,
             width: displayScreen.Width,
@@ -26,6 +28,7 @@ public class DisplayController
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
             Font = new Font12x20()
-        });
+        };
+        displayScreen.Controls.Add(label);
     }
 }

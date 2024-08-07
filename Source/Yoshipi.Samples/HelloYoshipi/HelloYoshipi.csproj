@@ -6,6 +6,12 @@
         <AssemblyName>App</AssemblyName>
     </PropertyGroup>
     <ItemGroup>
+      <None Remove="Resources\image.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\image.bmp" />
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
         <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
     </ItemGroup>

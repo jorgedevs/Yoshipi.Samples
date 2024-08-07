@@ -1,0 +1,32 @@
+﻿<Project Sdk="Meadow.Sdk/1.1.0">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>App</AssemblyName>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="Resources\img_meadow.bmp" />
+        <None Remove="Resources\img_refreshed.bmp" />
+        <None Remove="Resources\img_refreshing.bmp" />
+        <None Remove="Resources\img_wifi_connected.bmp" />
+        <None Remove="Resources\img_wifi_connecting.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\img_meadow.bmp" />
+        <EmbeddedResource Include="Resources\img_refreshed.bmp" />
+        <EmbeddedResource Include="Resources\img_refreshing.bmp" />
+        <EmbeddedResource Include="Resources\img_wifi_connected.bmp" />
+        <EmbeddedResource Include="Resources\img_wifi_connecting.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Meadow.Logging.LogProviders" Version="1.12.8" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="app.config.yaml">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>

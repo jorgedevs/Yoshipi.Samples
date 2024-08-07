@@ -64,7 +64,7 @@ public class DisplayController
     private void ButtonClicked(object sender, EventArgs e)
     {
         count++;
-        string message = $"Button pressed {count} times!";
+        string message = $"Clicked {count} times!";
         label.Text = message;
         Resolver.Log.Info(message);
     }

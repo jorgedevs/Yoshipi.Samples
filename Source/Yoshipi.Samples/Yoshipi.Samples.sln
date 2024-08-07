@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloYoshipi", "HelloYoship
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WifiWeather", "WifiWeather\WifiWeather.csproj", "{3A37A92E-CDFA-4E45-AA0C-DA99DD3C0EE0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeadowCloudLogging", "MeadowCloudLogging\MeadowCloudLogging.csproj", "{0896023D-6A95-48C2-B6B8-D57F23097105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,12 @@ Global
 		{3A37A92E-CDFA-4E45-AA0C-DA99DD3C0EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A37A92E-CDFA-4E45-AA0C-DA99DD3C0EE0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A37A92E-CDFA-4E45-AA0C-DA99DD3C0EE0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0896023D-6A95-48C2-B6B8-D57F23097105}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

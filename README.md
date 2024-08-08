@@ -1,3 +1,5 @@
+[![Main Branch](https://github.com/jorgedevs/Yoshipi.Samples/actions/workflows/build.yml/badge.svg)](https://github.com/jorgedevs/Yoshipi.Samples/actions/workflows/build.yml) 
+
 <img src="Design/yoshipi-samples-banner.jpg"  alt="Meadow.ProjectLab, C#, iot" style="margin-bottom:10px" />
 
 # Yoshipi.Samples

@@ -26,6 +26,17 @@ Project Samples:
     </tr>
     <tr>
         <td>
+            <img src="Design/raspberrypi-yoshipi-meadow-cloud-command.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
+            Control a 4-channel relay using Commands from Meadow.Cloud</br> 
+            <a href="Source/MeadowCloudCommands/">Source Code</a>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </td>
         <td>

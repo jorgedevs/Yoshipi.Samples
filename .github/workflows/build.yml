@@ -1,0 +1,29 @@
+name: Main Build
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+
+    - name: Checkout Yoshipi.Samples
+      uses: actions/checkout@v3
+      with:
+        path: Yoshipi.Samples
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 
+          8.0.x
+      
+    - name: Build Yoshipi.Samples
+      run: dotnet build -c Release Yoshipi.Samples/Source/Yoshipi.Samples.sln

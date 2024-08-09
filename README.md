@@ -31,6 +31,9 @@ Project Samples:
             <a href="Source/MeadowCloudCommands/">Source Code</a>
         </td>
         <td>
+            <img src="Design/raspberrypi-yoshipi-meadow-ambient-monitor.jpg" alt="Raspberry Pi YoshiPi meadow cloud ambient monitor"/><br/>
+            Graph environmental data using simulated sensors</br>
+            <a href="Source/AmbientMonitor/">Source Code</a>
         </td>
         <td>
         </td>

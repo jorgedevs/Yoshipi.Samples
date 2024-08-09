@@ -1,0 +1,22 @@
+﻿<Project Sdk="Meadow.Sdk/1.1.0">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>App</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\img-sync-fade.bmp" />
+        <EmbeddedResource Include="Resources\img-sync.bmp" />
+        <EmbeddedResource Include="Resources\img-wifi-fade.bmp" />
+        <EmbeddedResource Include="Resources\img-wifi.bmp" />
+        <EmbeddedResource Include="Resources\img_meadow.bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Logging.LogProviders" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    </ItemGroup>
+</Project>

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeadowCloudLogging", "Meado
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeadowCloudCommands", "MeadowCloudCommands\MeadowCloudCommands.csproj", "{57EB2164-0C76-4D08-8C5F-94866E7177DB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientMonitor", "AmbientMonitor\AmbientMonitor.csproj", "{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{57EB2164-0C76-4D08-8C5F-94866E7177DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57EB2164-0C76-4D08-8C5F-94866E7177DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57EB2164-0C76-4D08-8C5F-94866E7177DB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -102,7 +102,7 @@ public class DisplayController
             152,
             font8x16.Height)
         {
-            Text = $"Project Lab v3",
+            Text = $"YoshiPi v1b",
             TextColor = Color.White,
             Font = font8x16,
             VerticalAlignment = VerticalAlignment.Center,

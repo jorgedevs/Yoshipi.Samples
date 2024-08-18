@@ -17,15 +17,16 @@ public class MeadowApp : YoshiPiApp
 
         var hardware = new WifiWeatherHardware(Hardware);
         mainController = new MainController(hardware);
-        mainController.Initialize();
 
         return Task.CompletedTask;
     }
 
-    public override async Task Run()
+    public override Task Run()
     {
         Resolver.Log.Info("Run...");
 
-        await mainController?.Run();
+        mainController?.Run();
+
+        return Task.CompletedTask;
     }
 }

@@ -25,10 +25,7 @@ public class MainController
     public MainController(IWifiWeatherHardware hardware)
     {
         this.hardware = hardware;
-    }
 
-    public void Initialize()
-    {
         hardware.LeftButton.Clicked += (s, e) =>
         {
             currentGraphType = currentGraphType - 1 < 0 ? 2 : currentGraphType - 1;

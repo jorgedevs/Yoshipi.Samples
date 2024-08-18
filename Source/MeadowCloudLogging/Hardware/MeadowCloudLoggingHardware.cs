@@ -11,7 +11,7 @@ internal class MeadowCloudLoggingHardware : IMeadowCloudLoggingHardware
 {
     protected IYoshiPiHardware yoshiPi { get; }
 
-    public IPixelDisplay Display { get; set; }
+    public IColorInvertableDisplay Display { get; set; }
 
     public ITemperatureSensor TemperatureSensor { get; set; }
 

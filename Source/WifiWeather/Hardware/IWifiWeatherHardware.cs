@@ -9,7 +9,7 @@ public interface IWifiWeatherHardware
 
     IButton DownButton { get; }
 
-    IPixelDisplay Display { get; }
+    IColorInvertableDisplay Display { get; }
 
     void Initialize();
 }

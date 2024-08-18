@@ -34,9 +34,9 @@ internal class DisplayController
     private Label status;
     private Label lastUpdated;
 
-    public DisplayController(IPixelDisplay display)
+    public DisplayController(IColorInvertableDisplay display)
     {
-        displayScreen = new DisplayScreen(display, RotationType._270Degrees)
+        displayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees)
         {
             BackgroundColor = backgroundColor
         };

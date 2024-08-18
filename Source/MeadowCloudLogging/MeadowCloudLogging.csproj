@@ -3,7 +3,6 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <AssemblyName>App</AssemblyName>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Resources\img_meadow.bmp" />
@@ -19,11 +18,19 @@
         <EmbeddedResource Include="Resources\img_wifi_connected.bmp" />
         <EmbeddedResource Include="Resources\img_wifi_connecting.bmp" />
     </ItemGroup>
+    
+    <!--
     <ItemGroup>
         <PackageReference Include="Meadow.Logging.LogProviders" Version="1.12.8" />
         <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
     </ItemGroup>
+    -->
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Meadow.Logging\Source\Meadow.Logging.LogProviders\Driver\Meadow.Logging.LogProviders.csproj" />
+      <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
+    </ItemGroup>
+    
     <ItemGroup>
         <None Update="app.config.yaml">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>

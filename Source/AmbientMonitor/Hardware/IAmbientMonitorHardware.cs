@@ -12,7 +12,7 @@ public interface IAmbientMonitorHardware
 
     IButton? RightButton { get; }
 
-    IPixelDisplay? Display { get; }
+    IColorInvertableDisplay? Display { get; }
 
     INetworkAdapter? NetworkAdapter { get; }
 

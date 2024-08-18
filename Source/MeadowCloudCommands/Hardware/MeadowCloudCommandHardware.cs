@@ -1,5 +1,4 @@
-﻿using Meadow.Foundation.Grove.Relays;
-using Meadow.Peripherals.Displays;
+﻿using Meadow.Peripherals.Displays;
 using YoshiPi;
 
 namespace MeadowCloudCommands.Hardware;
@@ -8,9 +7,9 @@ internal class MeadowCloudCommandHardware : IMeadowCloudCommandHardware
 {
     protected IYoshiPiHardware YoshiPi { get; }
 
-    public IPixelDisplay Display { get; set; }
+    public IColorInvertableDisplay Display { get; set; }
 
-    public FourChannelSpdtRelay FourChannelRelay { get; set; }
+    //public FourChannelSpdtRelay FourChannelRelay { get; set; }
 
     public MeadowCloudCommandHardware(IYoshiPiHardware yoshiPi)
     {
@@ -21,6 +20,6 @@ internal class MeadowCloudCommandHardware : IMeadowCloudCommandHardware
     {
         Display = YoshiPi.Display;
 
-        FourChannelRelay = new FourChannelSpdtRelay(YoshiPi.GroveI2c, 0x11);
+        //FourChannelRelay = new FourChannelSpdtRelay(YoshiPi.GroveI2c, 0x11);
     }
 }

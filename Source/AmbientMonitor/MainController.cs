@@ -41,8 +41,7 @@ public class MainController
         inputController.LeftButtonPressed += LeftButtonPressed;
         inputController.RightButtonPressed += RightButtonPressed;
 
-        displayController = new DisplayController(
-            this.hardware.Display);
+        displayController = new DisplayController(this.hardware.Display);
         displayController.ShowSplashScreen();
         Thread.Sleep(3000);
         displayController.ShowDataScreen();

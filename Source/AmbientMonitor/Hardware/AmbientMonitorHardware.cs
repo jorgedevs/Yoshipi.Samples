@@ -15,7 +15,7 @@ public class AmbientMonitorHardware : IAmbientMonitorHardware
 
     private readonly IButton? leftButton;
     private readonly IButton? rightButton;
-    private readonly IPixelDisplay? display;
+    private readonly IColorInvertableDisplay? display;
     private readonly INetworkAdapter? networkAdapter;
     private readonly ITemperatureSensor temperatureSimulator;
     private readonly IBarometricPressureSensor barometricPressureSensor;
@@ -25,7 +25,7 @@ public class AmbientMonitorHardware : IAmbientMonitorHardware
 
     public IButton? RightButton => rightButton;
 
-    public IPixelDisplay? Display => display;
+    public IColorInvertableDisplay? Display => display;
 
     public INetworkAdapter? NetworkAdapter => networkAdapter;
 

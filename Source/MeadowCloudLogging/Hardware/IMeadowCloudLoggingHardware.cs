@@ -6,7 +6,7 @@ namespace MeadowCloudLogging.Hardware;
 
 internal interface IMeadowCloudLoggingHardware
 {
-    public IPixelDisplay Display { get; }
+    public IColorInvertableDisplay Display { get; }
 
     public ITemperatureSensor TemperatureSensor { get; set; }
 

@@ -54,9 +54,9 @@ public class DisplayController
     private Label Sunrise;
     private Label Sunset;
 
-    public DisplayController(IPixelDisplay display)
+    public DisplayController(IColorInvertableDisplay display)
     {
-        DisplayScreen = new DisplayScreen(display, RotationType._270Degrees)
+        DisplayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees)
         {
             BackgroundColor = backgroundColor
         };

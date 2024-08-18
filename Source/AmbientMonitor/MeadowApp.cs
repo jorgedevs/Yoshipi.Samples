@@ -13,6 +13,8 @@ public class MeadowApp : YoshiPiApp
     {
         Resolver.Log.Info("Initialize...");
 
+        Hardware.Display.InvertDisplayColor(true);
+
         var hardware = new AmbientMonitorHardware(Hardware);
         mainController = new MainController();
         mainController.Initialize(hardware);

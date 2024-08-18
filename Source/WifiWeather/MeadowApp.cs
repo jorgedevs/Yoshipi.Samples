@@ -8,11 +8,13 @@ namespace WifiWeather;
 
 public class MeadowApp : YoshiPiApp
 {
-    private MainController mainController;
+    private MainController? mainController;
 
     public override Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
+
+        Hardware.Display.InvertDisplayColor(true);
 
         var hardware = new WifiWeatherHardware(Hardware);
         var network = Hardware.ComputeModule.NetworkAdapters.Primary<INetworkAdapter>();
@@ -27,6 +29,6 @@ public class MeadowApp : YoshiPiApp
     {
         Resolver.Log.Info("Run...");
 
-        await mainController.Run();
+        await mainController?.Run();
     }
 }

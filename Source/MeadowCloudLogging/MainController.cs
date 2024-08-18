@@ -1,13 +1,14 @@
 ﻿using Meadow;
 using Meadow.Hardware;
 using Meadow.Logging;
+using MeadowCloudLogging.Controllers;
 using MeadowCloudLogging.Hardware;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeadowCloudLogging.Controllers;
+namespace MeadowCloudLogging;
 
 internal class MainController
 {

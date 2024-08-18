@@ -1,12 +1,13 @@
 ﻿using Meadow;
 using Meadow.Hardware;
 using MeadowCloudCommands.Commands;
+using MeadowCloudCommands.Controllers;
 using MeadowCloudCommands.Hardware;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeadowCloudCommands.Controllers;
+namespace MeadowCloudCommands;
 
 internal class MainController
 {
@@ -23,7 +24,6 @@ internal class MainController
     public void Initialize()
     {
         hardware.Initialize();
-
 
         displayController = new DisplayController(hardware.Display);
         displayController.ShowSplashScreen();
@@ -53,23 +53,23 @@ internal class MainController
 
             Resolver.Log.Trace($"Received ToggleRelayCommand command to relay {command.Relay} : {command.IsOn}");
 
-            switch (command.Relay)
-            {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    hardware.FourChannelRelay.Relays[command.Relay].State = command.IsOn
-                        ? Meadow.Peripherals.Relays.RelayState.Open
-                        : Meadow.Peripherals.Relays.RelayState.Closed;
-                    break;
-                case 4:
-                    if (command.IsOn)
-                        hardware.FourChannelRelay.SetAllOn();
-                    else
-                        hardware.FourChannelRelay.SetAllOff();
-                    break;
-            }
+            //switch (command.Relay)
+            //{
+            //    case 0:
+            //    case 1:
+            //    case 2:
+            //    case 3:
+            //        hardware.FourChannelRelay.Relays[command.Relay].State = command.IsOn
+            //            ? Meadow.Peripherals.Relays.RelayState.Open
+            //            : Meadow.Peripherals.Relays.RelayState.Closed;
+            //        break;
+            //    case 4:
+            //        if (command.IsOn)
+            //            hardware.FourChannelRelay.SetAllOn();
+            //        else
+            //            hardware.FourChannelRelay.SetAllOff();
+            //        break;
+            //}
 
             displayController.UpdateRelayStatus(command.Relay, command.IsOn);
             displayController.UpdateLastUpdated(DateTime.Now.ToString("hh:mm tt dd/MM/yy"));

@@ -1,6 +1,5 @@
 ﻿using Meadow;
 using Meadow.Hardware;
-using MeadowCloudCommands.Controllers;
 using MeadowCloudCommands.Hardware;
 using System.Threading.Tasks;
 using YoshiPi;
@@ -14,6 +13,8 @@ public class MeadowApp : YoshiPiApp
     public override Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
+
+        Hardware.Display.InvertDisplayColor(true);
 
         var hardware = new MeadowCloudCommandHardware(Hardware);
         var network = Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();

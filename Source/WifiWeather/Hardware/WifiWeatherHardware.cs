@@ -12,7 +12,7 @@ public class WifiWeatherHardware : IWifiWeatherHardware
 
     public IButton DownButton { get; set; }
 
-    public IPixelDisplay Display { get; set; }
+    public IColorInvertableDisplay Display { get; set; }
 
     public WifiWeatherHardware(IYoshiPiHardware projLab)
     {

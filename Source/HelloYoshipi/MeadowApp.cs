@@ -13,9 +13,12 @@ public class MeadowApp : YoshiPiApp
     public override async Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
+
+        Hardware.Display.InvertDisplayColor(true);
+
         var displayController = new DisplayController(
             new DisplayScreen(
-                Hardware.Display!,
+                (IPixelDisplay)Hardware.Display!,
                 RotationType._270Degrees,
                 Hardware.Touchscreen)
         );
@@ -38,10 +41,10 @@ public class MeadowApp : YoshiPiApp
         displayController.LoadScreen();
     }
 
-    public override async Task Run()
+    public override Task Run()
     {
         Resolver.Log.Info("Run...");
 
-        await Task.CompletedTask;
+        return Task.CompletedTask;
     }
 }

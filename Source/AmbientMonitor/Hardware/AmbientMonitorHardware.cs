@@ -11,15 +11,13 @@ namespace AmbientMonitor.Hardware;
 
 public class AmbientMonitorHardware : IAmbientMonitorHardware
 {
-    private readonly IYoshiPiHardware yoshiPi;
-
     private readonly IButton? leftButton;
     private readonly IButton? rightButton;
     private readonly IColorInvertableDisplay? display;
     private readonly INetworkAdapter? networkAdapter;
-    private readonly ITemperatureSensor temperatureSimulator;
-    private readonly IBarometricPressureSensor barometricPressureSensor;
-    private readonly IHumiditySensor humiditySensor;
+    private readonly ITemperatureSensor? temperatureSimulator;
+    private readonly IBarometricPressureSensor? barometricPressureSensor;
+    private readonly IHumiditySensor? humiditySensor;
 
     public IButton? LeftButton => leftButton;
 
@@ -37,8 +35,6 @@ public class AmbientMonitorHardware : IAmbientMonitorHardware
 
     public AmbientMonitorHardware(IYoshiPiHardware yoshiPi)
     {
-        this.yoshiPi = yoshiPi;
-
         display = yoshiPi.Display;
 
         leftButton = yoshiPi.Button1;

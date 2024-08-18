@@ -1,18 +1,19 @@
-﻿using Meadow.Peripherals.Displays;
+﻿using Meadow.Hardware;
+using Meadow.Peripherals.Displays;
 using Meadow.Peripherals.Sensors;
 using Meadow.Peripherals.Sensors.Atmospheric;
 
 namespace MeadowCloudLogging.Hardware;
 
-internal interface IMeadowCloudLoggingHardware
+public interface IMeadowCloudLoggingHardware
 {
-    public IColorInvertableDisplay Display { get; }
+    IColorInvertableDisplay? Display { get; }
 
-    public ITemperatureSensor TemperatureSensor { get; set; }
+    ITemperatureSensor? TemperatureSensor { get; }
 
-    public IBarometricPressureSensor BarometricPressureSensor { get; set; }
+    IBarometricPressureSensor? BarometricPressureSensor { get; }
 
-    public IHumiditySensor HumiditySensor { get; set; }
+    IHumiditySensor? HumiditySensor { get; }
 
-    public void Initialize();
+    INetworkAdapter? NetworkAdapter { get; }
 }

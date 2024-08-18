@@ -1,5 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
 using System.Threading.Tasks;
 using WifiWeather.Hardware;
 using YoshiPi;
@@ -17,9 +16,7 @@ public class MeadowApp : YoshiPiApp
         Hardware.Display.InvertDisplayColor(true);
 
         var hardware = new WifiWeatherHardware(Hardware);
-        var network = Hardware.ComputeModule.NetworkAdapters.Primary<INetworkAdapter>();
-
-        mainController = new MainController(hardware, network);
+        mainController = new MainController(hardware);
         mainController.Initialize();
 
         return Task.CompletedTask;

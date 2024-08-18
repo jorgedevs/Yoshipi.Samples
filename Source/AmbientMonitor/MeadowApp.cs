@@ -16,16 +16,17 @@ public class MeadowApp : YoshiPiApp
         Hardware.Display.InvertDisplayColor(true);
 
         var hardware = new AmbientMonitorHardware(Hardware);
-        mainController = new MainController();
-        mainController.Initialize(hardware);
+        mainController = new MainController(hardware);
 
         return Task.CompletedTask;
     }
 
-    public override async Task Run()
+    public override Task Run()
     {
         Resolver.Log.Info("Run...");
 
-        await mainController?.Run();
+        mainController?.Run();
+
+        return Task.CompletedTask;
     }
 }

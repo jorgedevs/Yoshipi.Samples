@@ -1,5 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -16,7 +15,6 @@ public class MainController
     private int currentGraphType = 0;
 
     private IWifiWeatherHardware hardware;
-    private INetworkAdapter network;
     private DisplayController displayController;
     private RestClientController restClientController;
 
@@ -24,24 +22,21 @@ public class MainController
     private List<double> pressureReadings = new List<double>();
     private List<double> humidityReadings = new List<double>();
 
-    public MainController(IWifiWeatherHardware hardware, INetworkAdapter network)
+    public MainController(IWifiWeatherHardware hardware)
     {
         this.hardware = hardware;
-        this.network = network;
     }
 
     public void Initialize()
     {
-        hardware.Initialize();
-
-        hardware.UpButton.Clicked += (s, e) =>
+        hardware.LeftButton.Clicked += (s, e) =>
         {
             currentGraphType = currentGraphType - 1 < 0 ? 2 : currentGraphType - 1;
 
             UpdateGraph();
         };
 
-        hardware.DownButton.Clicked += (s, e) =>
+        hardware.RightButton.Clicked += (s, e) =>
         {
             currentGraphType = currentGraphType + 1 > 2 ? 0 : currentGraphType + 1;
 
@@ -114,12 +109,11 @@ public class MainController
     {
         while (true)
         {
-            displayController.UpdateWiFiStatus(network.IsConnected);
+            displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
 
-            if (network.IsConnected)
+            if (hardware.NetworkAdapter.IsConnected)
             {
-                int TimeZoneOffSet = -7; // PST
-                var today = DateTime.Now.AddHours(TimeZoneOffSet);
+                var today = DateTime.Now;
 
                 Resolver.Log.Trace("Connected!");
 

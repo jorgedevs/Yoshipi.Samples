@@ -5,7 +5,7 @@ using Meadow.Peripherals.Displays;
 
 namespace MeadowCloudLogging.Controllers;
 
-internal class DisplayController
+public class DisplayController
 {
     private readonly int rowHeight = 60;
     private readonly int rowMargin = 15;

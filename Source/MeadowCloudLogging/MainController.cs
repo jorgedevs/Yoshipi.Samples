@@ -1,5 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
 using Meadow.Logging;
 using MeadowCloudLogging.Controllers;
 using MeadowCloudLogging.Hardware;
@@ -13,18 +12,11 @@ namespace MeadowCloudLogging;
 internal class MainController
 {
     IMeadowCloudLoggingHardware hardware;
-    IWiFiNetworkAdapter network;
     DisplayController displayController;
 
-    public MainController(IMeadowCloudLoggingHardware hardware, IWiFiNetworkAdapter network)
+    public MainController(IMeadowCloudLoggingHardware hardware)
     {
         this.hardware = hardware;
-        this.network = network;
-    }
-
-    public void Initialize()
-    {
-        hardware.Initialize();
 
         var cloudLogger = new CloudLogger();
         Resolver.Log.AddProvider(cloudLogger);
@@ -50,7 +42,7 @@ internal class MainController
             pressure: $"{hardware.BarometricPressureSensor.Pressure.Value.Millibar:N0}",
             humidity: $"{hardware.HumiditySensor.Humidity.Value.Percent:N0}");
 
-        if (network.IsConnected)
+        if (hardware.NetworkAdapter.IsConnected)
         {
             displayController.UpdateSyncStatus(true);
             displayController.UpdateStatus("Sending data...");
@@ -85,9 +77,9 @@ internal class MainController
 
         while (true)
         {
-            displayController.UpdateWiFiStatus(network.IsConnected);
+            displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
 
-            if (network.IsConnected)
+            if (hardware.NetworkAdapter.IsConnected)
             {
                 displayController.UpdateStatus(DateTime.Now.ToString("hh:mm tt dd/MM/yy"));
 

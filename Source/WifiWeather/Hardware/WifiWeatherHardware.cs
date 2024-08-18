@@ -1,4 +1,5 @@
-﻿using Meadow.Peripherals.Displays;
+﻿using Meadow.Hardware;
+using Meadow.Peripherals.Displays;
 using Meadow.Peripherals.Sensors.Buttons;
 using YoshiPi;
 
@@ -6,25 +7,27 @@ namespace WifiWeather.Hardware;
 
 public class WifiWeatherHardware : IWifiWeatherHardware
 {
-    protected IYoshiPiHardware ProjLab { get; private set; }
+    private readonly IButton? leftButton;
+    private readonly IButton? rightButton;
+    private readonly IColorInvertableDisplay? display;
+    private readonly INetworkAdapter? networkAdapter;
 
-    public IButton UpButton { get; set; }
+    public IButton? LeftButton => leftButton;
 
-    public IButton DownButton { get; set; }
+    public IButton? RightButton => rightButton;
 
-    public IColorInvertableDisplay Display { get; set; }
+    public IColorInvertableDisplay? Display => display;
 
-    public WifiWeatherHardware(IYoshiPiHardware projLab)
+    public INetworkAdapter? NetworkAdapter => networkAdapter;
+
+    public WifiWeatherHardware(IYoshiPiHardware yoshiPi)
     {
-        ProjLab = projLab;
-    }
+        display = yoshiPi.Display;
 
-    public void Initialize()
-    {
-        UpButton = ProjLab.Button1;
+        leftButton = yoshiPi.Button1;
 
-        DownButton = ProjLab.Button2;
+        rightButton = yoshiPi.Button2;
 
-        Display = ProjLab.Display;
+        networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
     }
 }

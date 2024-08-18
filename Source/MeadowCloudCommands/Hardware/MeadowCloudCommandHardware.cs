@@ -1,25 +1,28 @@
-﻿using Meadow.Peripherals.Displays;
+﻿using Meadow.Foundation.Grove.Relays;
+using Meadow.Hardware;
+using Meadow.Peripherals.Displays;
 using YoshiPi;
 
 namespace MeadowCloudCommands.Hardware;
 
-internal class MeadowCloudCommandHardware : IMeadowCloudCommandHardware
+public class MeadowCloudCommandHardware : IMeadowCloudCommandHardware
 {
-    protected IYoshiPiHardware YoshiPi { get; }
+    private readonly IColorInvertableDisplay? display;
+    private readonly FourChannelSpdtRelay? fourChannelRelay;
+    private readonly INetworkAdapter? networkAdapter;
 
-    public IColorInvertableDisplay Display { get; set; }
+    public IColorInvertableDisplay? Display => display;
 
-    //public FourChannelSpdtRelay FourChannelRelay { get; set; }
+    public FourChannelSpdtRelay? FourChannelRelay => fourChannelRelay;
+
+    public INetworkAdapter? NetworkAdapter => networkAdapter;
 
     public MeadowCloudCommandHardware(IYoshiPiHardware yoshiPi)
     {
-        YoshiPi = yoshiPi;
-    }
+        display = yoshiPi.Display;
 
-    public void Initialize()
-    {
-        Display = YoshiPi.Display;
+        fourChannelRelay = new FourChannelSpdtRelay(yoshiPi.GroveI2c, 0x11);
 
-        //FourChannelRelay = new FourChannelSpdtRelay(YoshiPi.GroveI2c, 0x11);
+        networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
     }
 }

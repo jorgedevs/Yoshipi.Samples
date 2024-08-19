@@ -52,8 +52,8 @@ public class MainController
                 case 2:
                 case 3:
                     hardware.FourChannelRelay.Relays[command.Relay].State = command.IsOn
-                        ? Meadow.Peripherals.Relays.RelayState.Open
-                        : Meadow.Peripherals.Relays.RelayState.Closed;
+                        ? Meadow.Peripherals.Relays.RelayState.Closed
+                        : Meadow.Peripherals.Relays.RelayState.Open;
                     break;
                 case 4:
                     if (command.IsOn)

@@ -1,0 +1,28 @@
+<Project Sdk="Meadow.Sdk/1.1.0">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="Resources\img_meadow.bmp" />
+        <None Remove="Resources\img_relay_off.bmp" />
+        <None Remove="Resources\img_relay_on.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\img_meadow.bmp" />
+        <EmbeddedResource Include="Resources\img_relay_on.bmp" />
+        <EmbeddedResource Include="Resources\img_relay_off.bmp" />
+    </ItemGroup>
+    
+    <!--<ItemGroup>
+        <PackageReference Include="Meadow.Foundation.Grove.Relays.4-ChannelSpdtRelay" Version="*" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    </ItemGroup>-->
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Meadow.Foundation.Grove\Source\4-ChannelSpdtRelay\Driver\4-ChannelSpdtRelay.csproj" />
+      <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
+    </ItemGroup>
+</Project>

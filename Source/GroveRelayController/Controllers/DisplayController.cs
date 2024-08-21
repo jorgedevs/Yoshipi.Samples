@@ -24,8 +24,12 @@ public class DisplayController
     private IColorInvertableDisplay display;
     private ICalibratableTouchscreen touchscreen;
 
-    private Color backgroundColor = Color.FromHex("#F3F7FA");
+    private Color backgroundColor = Color.FromHex("#107392");
     private Color foregroundColor = Color.White;
+    private Color foreColor = Color.FromHex("41B1D3");
+    private Color pressedColor = Color.FromHex("094F65");
+    private Color highlightColor = Color.FromHex("41B1D3");
+    private Color shadowColor = Color.FromHex("094F65");
 
     private Font12x20 font12X20 = new Font12x20();
     private Font6x8 font6x8 = new Font6x8();
@@ -38,12 +42,10 @@ public class DisplayController
     private AbsoluteLayout splashLayout;
     private AbsoluteLayout dataLayout;
 
-    private Button toggleRelay0;
-    private Button toggleRelay1;
-    private Button toggleRelay2;
-    private Button toggleRelay3;
-
-    private Label status;
+    private Button relay0Button;
+    private Button relay1Button;
+    private Button relay2Button;
+    private Button relay3Button;
 
     private bool isRelay0On;
     private bool isRelay1On;
@@ -98,7 +100,7 @@ public class DisplayController
         var image = Image.LoadFromResource("GroveRelayController.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
-            BackColor = Color.FromHex("#B35E2C"),
+            BackColor = backgroundColor,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -114,21 +116,20 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, displayScreen.Width, rowHeight)
         {
-            ForeColor = Color.FromHex("844936")
+            ForeColor = shadowColor
         });
 
-        status = new Label(rowMargin, 20, displayScreen.Width / 2, 20)
+        dataLayout.Controls.Add(new Label(0, 20, displayScreen.Width, 20)
         {
             Text = "Grove Relay Controller",
             TextColor = foregroundColor,
             Font = font12X20,
-            HorizontalAlignment = HorizontalAlignment.Left
-        };
-        dataLayout.Controls.Add(status);
+            HorizontalAlignment = HorizontalAlignment.Center
+        });
 
         dataLayout.Controls.Add(new Box(0, rowHeight, displayScreen.Width, displayScreen.Height - rowHeight)
         {
-            ForeColor = Color.FromHex("B35E2C")
+            ForeColor = backgroundColor
         });
 
         int relayWidth = 71;
@@ -137,20 +138,20 @@ public class DisplayController
         int relaySpacing = 4;
         int smallMargin = 1;
 
-        toggleRelay0 = new Button(
+        relay0Button = new Button(
             margin,
             rowHeight + margin,
             relayWidth,
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = Color.FromHex("EE8343"),
-            PressedColor = Color.FromHex("844936"),
-            HighlightColor = Color.FromHex("EE8343"),
-            ShadowColor = Color.FromHex("844936")
+            ForeColor = foreColor,
+            PressedColor = pressedColor,
+            HighlightColor = highlightColor,
+            ShadowColor = shadowColor
         };
-        toggleRelay0.Clicked += ToggleRelay0_Clicked;
-        dataLayout.Controls.Add(toggleRelay0);
+        relay0Button.Clicked += ToggleRelay0_Clicked;
+        dataLayout.Controls.Add(relay0Button);
         dataLayout.Controls.Add(new Label(
             margin,
             rowHeight + margin + smallMargin * 3,
@@ -164,20 +165,20 @@ public class DisplayController
             HorizontalAlignment = HorizontalAlignment.Center
         });
 
-        toggleRelay1 = new Button(
+        relay1Button = new Button(
             margin + relayWidth + relaySpacing,
             rowHeight + margin,
             relayWidth,
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = Color.FromHex("EE8343"),
-            PressedColor = Color.FromHex("844936"),
-            HighlightColor = Color.FromHex("EE8343"),
-            ShadowColor = Color.FromHex("844936")
+            ForeColor = foreColor,
+            PressedColor = pressedColor,
+            HighlightColor = highlightColor,
+            ShadowColor = shadowColor
         };
-        toggleRelay1.Clicked += ToggleRelay1_Clicked;
-        dataLayout.Controls.Add(toggleRelay1);
+        relay1Button.Clicked += ToggleRelay1_Clicked;
+        dataLayout.Controls.Add(relay1Button);
         dataLayout.Controls.Add(new Label(
             margin + relayWidth + relaySpacing,
             rowHeight + margin + smallMargin * 3,
@@ -191,20 +192,20 @@ public class DisplayController
             HorizontalAlignment = HorizontalAlignment.Center
         });
 
-        toggleRelay2 = new Button(
+        relay2Button = new Button(
             margin + relayWidth * 2 + relaySpacing * 2,
             rowHeight + margin,
             relayWidth,
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = Color.FromHex("EE8343"),
-            PressedColor = Color.FromHex("844936"),
-            HighlightColor = Color.FromHex("EE8343"),
-            ShadowColor = Color.FromHex("844936")
+            ForeColor = foreColor,
+            PressedColor = pressedColor,
+            HighlightColor = highlightColor,
+            ShadowColor = shadowColor
         };
-        toggleRelay2.Clicked += ToggleRelay2_Clicked;
-        dataLayout.Controls.Add(toggleRelay2);
+        relay2Button.Clicked += ToggleRelay2_Clicked;
+        dataLayout.Controls.Add(relay2Button);
         dataLayout.Controls.Add(new Label(
             margin + relayWidth * 2 + relaySpacing * 2,
             rowHeight + margin + smallMargin * 3,
@@ -218,20 +219,20 @@ public class DisplayController
             HorizontalAlignment = HorizontalAlignment.Center
         });
 
-        toggleRelay3 = new Button(
+        relay3Button = new Button(
             margin + relayWidth * 3 + relaySpacing * 3,
             rowHeight + margin,
             relayWidth,
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = Color.FromHex("EE8343"),
-            PressedColor = Color.FromHex("844936"),
-            HighlightColor = Color.FromHex("EE8343"),
-            ShadowColor = Color.FromHex("844936")
+            ForeColor = foreColor,
+            PressedColor = pressedColor,
+            HighlightColor = highlightColor,
+            ShadowColor = shadowColor
         };
-        toggleRelay3.Clicked += ToggleRelay3_Clicked;
-        dataLayout.Controls.Add(toggleRelay3);
+        relay3Button.Clicked += ToggleRelay3_Clicked;
+        dataLayout.Controls.Add(relay3Button);
         dataLayout.Controls.Add(new Label(
             margin + relayWidth * 3 + relaySpacing * 3,
             rowHeight + margin + smallMargin * 3,
@@ -251,34 +252,29 @@ public class DisplayController
     private void ToggleRelay0_Clicked(object? sender, EventArgs e)
     {
         isRelay0On = !isRelay0On;
-        toggleRelay0.Image = isRelay0On ? relayOn : relayOff;
+        relay0Button.Image = isRelay0On ? relayOn : relayOff;
         Relay0Toggled?.Invoke(this, isRelay0On);
     }
 
     private void ToggleRelay1_Clicked(object? sender, EventArgs e)
     {
         isRelay1On = !isRelay1On;
-        toggleRelay1.Image = isRelay1On ? relayOn : relayOff;
+        relay1Button.Image = isRelay1On ? relayOn : relayOff;
         Relay1Toggled?.Invoke(this, isRelay1On);
     }
 
     private void ToggleRelay2_Clicked(object? sender, EventArgs e)
     {
         isRelay2On = !isRelay2On;
-        toggleRelay2.Image = isRelay2On ? relayOn : relayOff;
+        relay2Button.Image = isRelay2On ? relayOn : relayOff;
         Relay2Toggled?.Invoke(this, isRelay2On);
     }
 
     private void ToggleRelay3_Clicked(object? sender, EventArgs e)
     {
         isRelay3On = !isRelay3On;
-        toggleRelay3.Image = isRelay3On ? relayOn : relayOff;
+        relay3Button.Image = isRelay3On ? relayOn : relayOff;
         Relay3Toggled?.Invoke(this, isRelay3On);
-    }
-
-    private void UpdateStatus(string status)
-    {
-        this.status.Text = status;
     }
 
     public async Task Run()

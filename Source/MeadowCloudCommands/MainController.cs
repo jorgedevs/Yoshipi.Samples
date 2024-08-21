@@ -1,29 +1,21 @@
 ﻿using Meadow;
-using Meadow.Hardware;
 using MeadowCloudCommands.Commands;
+using MeadowCloudCommands.Controllers;
 using MeadowCloudCommands.Hardware;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeadowCloudCommands.Controllers;
+namespace MeadowCloudCommands;
 
-internal class MainController
+public class MainController
 {
     private IMeadowCloudCommandHardware hardware;
-    private IWiFiNetworkAdapter network;
     private DisplayController displayController;
 
-    public MainController(IMeadowCloudCommandHardware hardware, IWiFiNetworkAdapter network)
+    public MainController(IMeadowCloudCommandHardware hardware)
     {
         this.hardware = hardware;
-        this.network = network;
-    }
-
-    public void Initialize()
-    {
-        hardware.Initialize();
-
 
         displayController = new DisplayController(hardware.Display);
         displayController.ShowSplashScreen();
@@ -60,8 +52,8 @@ internal class MainController
                 case 2:
                 case 3:
                     hardware.FourChannelRelay.Relays[command.Relay].State = command.IsOn
-                        ? Meadow.Peripherals.Relays.RelayState.Open
-                        : Meadow.Peripherals.Relays.RelayState.Closed;
+                        ? Meadow.Peripherals.Relays.RelayState.Closed
+                        : Meadow.Peripherals.Relays.RelayState.Open;
                     break;
                 case 4:
                     if (command.IsOn)
@@ -85,9 +77,9 @@ internal class MainController
     {
         while (true)
         {
-            displayController.UpdateWiFiStatus(network.IsConnected);
+            displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
 
-            if (network.IsConnected)
+            if (hardware.NetworkAdapter.IsConnected)
             {
                 displayController.UpdateStatus(DateTime.Now.ToString("hh:mm tt dd/MM/yy"));
 

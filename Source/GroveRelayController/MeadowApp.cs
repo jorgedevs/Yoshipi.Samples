@@ -1,9 +1,9 @@
-﻿using AmbientMonitor.Hardware;
+﻿using GroveRelayController.Hardware;
 using Meadow;
 using System.Threading.Tasks;
 using YoshiPi;
 
-namespace AmbientMonitor;
+namespace GroveRelayController;
 
 public class MeadowApp : YoshiPiApp
 {
@@ -15,18 +15,18 @@ public class MeadowApp : YoshiPiApp
 
         Hardware.Display.InvertDisplayColor(true);
 
-        var hardware = new AmbientMonitorHardware(Hardware);
+        var hardware = new GroveRelayControllerHardware(Hardware);
         mainController = new MainController(hardware);
 
         return Task.CompletedTask;
     }
 
-    public override Task Run()
+    public override async Task Run()
     {
         Resolver.Log.Info("Run...");
 
-        mainController?.Run();
+        await mainController.Start();
 
-        return Task.CompletedTask;
+        //return Task.CompletedTask;
     }
 }

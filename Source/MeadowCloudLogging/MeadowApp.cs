@@ -1,6 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
-using MeadowCloudLogging.Controllers;
 using MeadowCloudLogging.Hardware;
 using System.Threading.Tasks;
 using YoshiPi;
@@ -9,17 +7,16 @@ namespace MeadowCloudLogging;
 
 public class MeadowApp : YoshiPiApp
 {
-    private MainController mainController;
+    private MainController? mainController;
 
     public override Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
 
-        var hardware = new MeadowCloudLoggingHardware(Hardware);
-        var network = Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
+        Hardware.Display.InvertDisplayColor(true);
 
-        mainController = new MainController(hardware, network);
-        mainController.Initialize();
+        var hardware = new MeadowCloudLoggingHardware(Hardware);
+        mainController = new MainController(hardware);
 
         return Task.CompletedTask;
     }
@@ -28,7 +25,7 @@ public class MeadowApp : YoshiPiApp
     {
         Resolver.Log.Info("Run...");
 
-        mainController.Run();
+        mainController?.Run();
 
         return Task.CompletedTask;
     }

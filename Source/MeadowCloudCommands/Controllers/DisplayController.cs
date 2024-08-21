@@ -5,7 +5,7 @@ using Meadow.Peripherals.Displays;
 
 namespace MeadowCloudCommands.Controllers;
 
-internal class DisplayController
+public class DisplayController
 {
     private readonly int rowHeight = 60;
     private readonly int rowMargin = 15;
@@ -34,9 +34,9 @@ internal class DisplayController
     private Label status;
     private Label lastUpdated;
 
-    public DisplayController(IPixelDisplay display)
+    public DisplayController(IColorInvertableDisplay display)
     {
-        displayScreen = new DisplayScreen(display, RotationType._270Degrees)
+        displayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees)
         {
             BackgroundColor = backgroundColor
         };
@@ -58,7 +58,7 @@ internal class DisplayController
         var image = Image.LoadFromResource("MeadowCloudCommands.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
-            BackColor = Meadow.Color.FromHex("#B35E2C"),
+            BackColor = Color.FromHex("#B35E2C"),
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -75,7 +75,7 @@ internal class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, displayScreen.Width, rowHeight)
         {
-            ForeColor = Meadow.Color.FromHex("844936")
+            ForeColor = Color.FromHex("844936")
         });
 
         var wifiImage = Image.LoadFromResource("MeadowCloudCommands.Resources.img_wifi_connecting.bmp");
@@ -114,7 +114,7 @@ internal class DisplayController
 
         dataLayout.Controls.Add(new Box(0, rowHeight, displayScreen.Width, displayScreen.Height - rowHeight)
         {
-            ForeColor = Meadow.Color.FromHex("B35E2C")
+            ForeColor = Color.FromHex("B35E2C")
         });
 
         int relayWidth = 71;
@@ -129,7 +129,7 @@ internal class DisplayController
             relayWidth,
             relayHeight)
         {
-            ForeColor = Meadow.Color.White,
+            ForeColor = Color.White,
             IsFilled = false
         });
         dataLayout.Controls.Add(new Label(
@@ -162,7 +162,7 @@ internal class DisplayController
             relayWidth,
             relayHeight)
         {
-            ForeColor = Meadow.Color.White,
+            ForeColor = Color.White,
             IsFilled = false
         });
         dataLayout.Controls.Add(new Label(
@@ -195,7 +195,7 @@ internal class DisplayController
             relayWidth,
             relayHeight)
         {
-            ForeColor = Meadow.Color.White,
+            ForeColor = Color.White,
             IsFilled = false
         });
         dataLayout.Controls.Add(new Label(
@@ -228,7 +228,7 @@ internal class DisplayController
             relayWidth,
             relayHeight)
         {
-            ForeColor = Meadow.Color.White,
+            ForeColor = Color.White,
             IsFilled = false
         });
         dataLayout.Controls.Add(new Label(

@@ -54,9 +54,9 @@ public class DisplayController
     private Label Sunrise;
     private Label Sunset;
 
-    public DisplayController(IPixelDisplay display)
+    public DisplayController(IColorInvertableDisplay display)
     {
-        DisplayScreen = new DisplayScreen(display, RotationType._270Degrees)
+        DisplayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees)
         {
             BackgroundColor = backgroundColor
         };
@@ -102,7 +102,7 @@ public class DisplayController
             152,
             font8x16.Height)
         {
-            Text = $"Project Lab v3",
+            Text = $"YoshiPi v1b",
             TextColor = Color.White,
             Font = font8x16,
             VerticalAlignment = VerticalAlignment.Center,

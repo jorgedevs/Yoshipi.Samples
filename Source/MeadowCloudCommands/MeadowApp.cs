@@ -1,6 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
-using MeadowCloudCommands.Controllers;
 using MeadowCloudCommands.Hardware;
 using System.Threading.Tasks;
 using YoshiPi;
@@ -15,11 +13,10 @@ public class MeadowApp : YoshiPiApp
     {
         Resolver.Log.Info("Initialize...");
 
-        var hardware = new MeadowCloudCommandHardware(Hardware);
-        var network = Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
+        Hardware.Display.InvertDisplayColor(true);
 
-        mainController = new MainController(hardware, network);
-        mainController.Initialize();
+        var hardware = new MeadowCloudCommandHardware(Hardware);
+        mainController = new MainController(hardware);
 
         return Task.CompletedTask;
     }

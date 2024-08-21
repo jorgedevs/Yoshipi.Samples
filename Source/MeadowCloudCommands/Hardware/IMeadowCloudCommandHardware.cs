@@ -1,13 +1,14 @@
 ﻿using Meadow.Foundation.Grove.Relays;
+using Meadow.Hardware;
 using Meadow.Peripherals.Displays;
 
 namespace MeadowCloudCommands.Hardware;
 
-internal interface IMeadowCloudCommandHardware
+public interface IMeadowCloudCommandHardware
 {
-    public IPixelDisplay Display { get; }
+    IColorInvertableDisplay? Display { get; }
 
-    public FourChannelSpdtRelay FourChannelRelay { get; }
+    FourChannelSpdtRelay? FourChannelRelay { get; }
 
-    public void Initialize();
+    INetworkAdapter? NetworkAdapter { get; }
 }

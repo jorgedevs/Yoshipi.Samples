@@ -23,15 +23,12 @@ public class MainController
     private List<double> pressureReadings = new List<double>();
     private List<double> humidityReadings = new List<double>();
 
-    public MainController() { }
-
-    public Task Initialize(IAmbientMonitorHardware hardware)
+    public MainController(IAmbientMonitorHardware hardware)
     {
         this.hardware = hardware;
 
         sensorController = new SensorController(hardware);
         sensorController.Updated += SensorControllerUpdated;
-
 
         var cloudLogger = new CloudLogger();
         Resolver.Log.AddProvider(cloudLogger);
@@ -41,13 +38,10 @@ public class MainController
         inputController.LeftButtonPressed += LeftButtonPressed;
         inputController.RightButtonPressed += RightButtonPressed;
 
-        displayController = new DisplayController(
-            this.hardware.Display);
+        displayController = new DisplayController(this.hardware.Display);
         displayController.ShowSplashScreen();
         Thread.Sleep(3000);
         displayController.ShowDataScreen();
-
-        return Task.CompletedTask;
     }
 
     private void SensorControllerUpdated(object sender, AtmosphericConditions e)

@@ -1,5 +1,4 @@
 ﻿using Meadow;
-using Meadow.Hardware;
 using System.Threading.Tasks;
 using WifiWeather.Hardware;
 using YoshiPi;
@@ -8,25 +7,26 @@ namespace WifiWeather;
 
 public class MeadowApp : YoshiPiApp
 {
-    private MainController mainController;
+    private MainController? mainController;
 
     public override Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
 
-        var hardware = new WifiWeatherHardware(Hardware);
-        var network = Hardware.ComputeModule.NetworkAdapters.Primary<INetworkAdapter>();
+        Hardware.Display.InvertDisplayColor(true);
 
-        mainController = new MainController(hardware, network);
-        mainController.Initialize();
+        var hardware = new WifiWeatherHardware(Hardware);
+        mainController = new MainController(hardware);
 
         return Task.CompletedTask;
     }
 
-    public override async Task Run()
+    public override Task Run()
     {
         Resolver.Log.Info("Run...");
 
-        await mainController.Run();
+        mainController?.Run();
+
+        return Task.CompletedTask;
     }
 }

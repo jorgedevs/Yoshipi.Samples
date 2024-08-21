@@ -1,15 +1,16 @@
-﻿using Meadow.Peripherals.Displays;
+﻿using Meadow.Hardware;
+using Meadow.Peripherals.Displays;
 using Meadow.Peripherals.Sensors.Buttons;
 
 namespace WifiWeather.Hardware;
 
 public interface IWifiWeatherHardware
 {
-    IButton UpButton { get; }
+    IButton? LeftButton { get; }
 
-    IButton DownButton { get; }
+    IButton? RightButton { get; }
 
-    IPixelDisplay Display { get; }
+    IColorInvertableDisplay? Display { get; }
 
-    void Initialize();
+    INetworkAdapter? NetworkAdapter { get; }
 }

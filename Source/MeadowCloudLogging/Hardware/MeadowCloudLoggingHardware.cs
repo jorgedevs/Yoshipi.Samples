@@ -1,42 +1,44 @@
 ﻿using Meadow.Foundation.Sensors;
+using Meadow.Hardware;
 using Meadow.Peripherals.Displays;
-using Meadow.Peripherals.Leds;
 using Meadow.Peripherals.Sensors;
 using Meadow.Peripherals.Sensors.Atmospheric;
+using Meadow.Units;
 using YoshiPi;
 
 namespace MeadowCloudLogging.Hardware;
 
-internal class MeadowCloudLoggingHardware : IMeadowCloudLoggingHardware
+public class MeadowCloudLoggingHardware : IMeadowCloudLoggingHardware
 {
-    protected IYoshiPiHardware yoshiPi { get; }
+    private readonly IColorInvertableDisplay? display;
+    private readonly INetworkAdapter? networkAdapter;
+    private readonly ITemperatureSensor? temperatureSensor;
+    private readonly IBarometricPressureSensor? barometricPressureSensor;
+    private readonly IHumiditySensor? humiditySensor;
 
-    public IPixelDisplay Display { get; set; }
+    public IColorInvertableDisplay? Display => display;
 
-    public ITemperatureSensor TemperatureSensor { get; set; }
+    public ITemperatureSensor? TemperatureSensor => temperatureSensor;
 
-    public IBarometricPressureSensor BarometricPressureSensor { get; set; }
+    public IBarometricPressureSensor? BarometricPressureSensor => barometricPressureSensor;
 
-    public IHumiditySensor HumiditySensor { get; set; }
+    public IHumiditySensor? HumiditySensor => humiditySensor;
 
-    public IRgbPwmLed RgbPwmLed { get; set; }
+    public INetworkAdapter? NetworkAdapter => networkAdapter;
 
-    public MeadowCloudLoggingHardware(IYoshiPiHardware projLab)
+    public MeadowCloudLoggingHardware(IYoshiPiHardware yoshiPi)
     {
-        yoshiPi = projLab;
-    }
+        display = yoshiPi.Display;
 
-    public void Initialize()
-    {
-        Display = yoshiPi.Display;
+        temperatureSensor = new SimulatedTemperatureSensor(
+            new Temperature(20, Temperature.UnitType.Celsius),
+            new Temperature(18, Temperature.UnitType.Celsius),
+            new Temperature(25, Temperature.UnitType.Celsius));
 
-        TemperatureSensor = new SimulatedTemperatureSensor(
-            new Meadow.Units.Temperature(22),
-            new Meadow.Units.Temperature(20),
-            new Meadow.Units.Temperature(26));
+        barometricPressureSensor = new SimulatedBarometricPressureSensor();
 
-        BarometricPressureSensor = new SimulatedBarometricPressureSensor();
+        humiditySensor = new SimulatedHumiditySensor();
 
-        HumiditySensor = new SimulatedHumiditySensor();
+        networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
     }
 }

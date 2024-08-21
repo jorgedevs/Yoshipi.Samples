@@ -1,29 +1,64 @@
 ﻿using Meadow;
 using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Graphics.MicroLayout;
+using Meadow.Foundation.Hmi;
+using Meadow.Hardware;
+using Meadow.Peripherals.Displays;
 using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace HelloYoshipi;
 
 public class DisplayController
 {
-    public DisplayScreen DisplayScreen { get; set; }
-
+    private IColorInvertableDisplay display;
+    private ICalibratableTouchscreen touchscreen;
+    private DisplayScreen displayScreen;
     private Label label;
 
     private int count = 0;
 
-    public DisplayController(DisplayScreen displayScreen)
+    public DisplayController(IColorInvertableDisplay display, ICalibratableTouchscreen touchscreen)
     {
-        DisplayScreen = displayScreen;
+        this.display = display;
+        this.touchscreen = touchscreen;
+
+        displayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees, touchscreen);
     }
 
-    public void LoadScreen()
+    public async Task Start()
     {
-        DisplayScreen.BackgroundColor = Color.FromHex("FFFFFF");
+        await CheckTouchscreenCalibration();
+        CreateLayouts();
+    }
+
+    private async Task CheckTouchscreenCalibration()
+    {
+        var calfile = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ts.cal"));
+
+        Resolver.Log.Info($"Using calibration data at {calfile.FullName}");
+
+        var cal = new TouchscreenCalibrationService(displayScreen, calfile);
+
+        var existing = cal.GetSavedCalibrationData();
+
+        if (existing != null)
+        {
+            touchscreen.SetCalibrationData(existing);
+        }
+        else
+        {
+            await cal.Calibrate(true);
+        }
+    }
+
+    private void CreateLayouts()
+    {
+        displayScreen.BackgroundColor = Color.FromHex("FFFFFF");
 
         var image = Image.LoadFromResource("HelloYoshipi.Resources.image.bmp");
-        DisplayScreen.Controls.Add(new Picture(
+        displayScreen.Controls.Add(new Picture(
             left: 99,
             top: 18,
             width: 122,
@@ -33,7 +68,7 @@ public class DisplayController
         label = new Label(
             left: 0,
             top: 162,
-            width: DisplayScreen.Width,
+            width: displayScreen.Width,
             height: 16)
         {
             Text = "Hello, World",
@@ -42,7 +77,7 @@ public class DisplayController
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center
         };
-        DisplayScreen.Controls.Add(label);
+        displayScreen.Controls.Add(label);
 
         var button = new Button(
             left: 92,
@@ -58,7 +93,7 @@ public class DisplayController
             HighlightColor = Color.FromHex("1E2834"),
         };
         button.Clicked += ButtonClicked;
-        DisplayScreen.Controls.Add(button);
+        displayScreen.Controls.Add(button);
     }
 
     private void ButtonClicked(object sender, EventArgs e)

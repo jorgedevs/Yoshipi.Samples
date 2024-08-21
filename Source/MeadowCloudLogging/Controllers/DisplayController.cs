@@ -5,7 +5,7 @@ using Meadow.Peripherals.Displays;
 
 namespace MeadowCloudLogging.Controllers;
 
-internal class DisplayController
+public class DisplayController
 {
     private readonly int rowHeight = 60;
     private readonly int rowMargin = 15;
@@ -30,9 +30,9 @@ internal class DisplayController
     private Label pressure;
     private Label humidity;
 
-    public DisplayController(IPixelDisplay display)
+    public DisplayController(IColorInvertableDisplay display)
     {
-        displayScreen = new DisplayScreen(display, RotationType._270Degrees)
+        displayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees)
         {
             BackgroundColor = backgroundColor
         };

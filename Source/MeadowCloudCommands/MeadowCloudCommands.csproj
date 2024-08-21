@@ -22,19 +22,13 @@
         <EmbeddedResource Include="Resources\img_wifi_connected.bmp" />
         <EmbeddedResource Include="Resources\img_wifi_connecting.bmp" />
     </ItemGroup>
-    
-    <!--
+
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.Grove.Relays.4-ChannelSpdtRelay" Version="*" />
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Grove.Relays.4-ChannelSpdtRelay" Version="1.13.0" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
     </ItemGroup>
-    -->
-    
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\Meadow.Foundation.Grove\Source\4-ChannelSpdtRelay\Driver\4-ChannelSpdtRelay.csproj" />
-      <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
-    </ItemGroup>
-    
+
     <ItemGroup>
         <None Update="app.config.yaml">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>

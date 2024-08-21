@@ -11,8 +11,12 @@
       <EmbeddedResource Include="Resources\image.bmp" />
     </ItemGroup>
     
+    <!--<ItemGroup>
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    </ItemGroup>-->
+
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
+        <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
     </ItemGroup>
 </Project>

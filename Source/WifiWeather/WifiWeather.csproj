@@ -70,9 +70,15 @@
         <EmbeddedResource Include="Resources\w_storm_light_sun.bmp" />
     </ItemGroup>
     
+    <!--
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
+    </ItemGroup>
+    -->
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
     </ItemGroup>
 
     <ItemGroup>

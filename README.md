@@ -26,16 +26,19 @@ Project Samples:
     </tr>
     <tr>
         <td>
-            <img src="Design/raspberrypi-yoshipi-meadow-cloud-command.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
-            Control a 4-channel relay using Commands from Meadow.Cloud</br> 
-            <a href="Source/MeadowCloudCommands/">Source Code</a>
-        </td>
-        <td>
             <img src="Design/raspberrypi-yoshipi-meadow-ambient-monitor.jpg" alt="Raspberry Pi YoshiPi meadow cloud ambient monitor"/><br/>
             Graph environmental data using simulated sensors</br>
             <a href="Source/AmbientMonitor/">Source Code</a>
         </td>
         <td>
+            <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
+            Control a 4-channel relay on an interactive HMI with a touchscreen display</br> 
+            <a href="Source/GroveRelayController/">Source Code</a>
+        </td>
+        <td>
+            <img src="Design/raspberrypi-yoshipi-meadow-cloud-command.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
+            Control a 4-channel relay using Commands from Meadow.Cloud</br> 
+            <a href="Source/MeadowCloudCommands/">Source Code</a>
         </td>
     </tr>
     <tr>

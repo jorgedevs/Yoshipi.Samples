@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    
     <ItemGroup>
         <None Remove="Resources\img_meadow.bmp" />
         <None Remove="Resources\img_refreshed.bmp" />
@@ -37,6 +38,7 @@
         <None Remove="w_snow.bmp" />
         <None Remove="w_storm.bmp" />
     </ItemGroup>
+    
     <ItemGroup>
         <EmbeddedResource Include="Resources\img_meadow.bmp" />
         <EmbeddedResource Include="Resources\img_refreshing.bmp" />

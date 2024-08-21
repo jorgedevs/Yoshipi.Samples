@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    
     <ItemGroup>
         <None Remove="Resources\img_meadow.bmp" />
         <None Remove="Resources\img_refreshed.bmp" />
@@ -11,6 +12,7 @@
         <None Remove="Resources\img_wifi_connected.bmp" />
         <None Remove="Resources\img_wifi_connecting.bmp" />
     </ItemGroup>
+    
     <ItemGroup>
         <EmbeddedResource Include="Resources\img_meadow.bmp" />
         <EmbeddedResource Include="Resources\img_refreshed.bmp" />

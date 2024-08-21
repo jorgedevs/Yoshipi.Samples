@@ -32,7 +32,7 @@ Project Samples:
         </td>
         <td>
             <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
-            Control a 4-channel relay on an interactive HMI with a touchscreen display</br> 
+            Control a 4-channel relay on an interactive HMI with a touchscreen</br> 
             <a href="Source/GroveRelayController/">Source Code</a>
         </td>
         <td>

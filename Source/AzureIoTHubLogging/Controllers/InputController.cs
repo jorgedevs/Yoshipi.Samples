@@ -1,7 +1,7 @@
-﻿using AmbientMonitor.Hardware;
+﻿using AzureIoTHubLogging.Hardware;
 using System;
 
-namespace AmbientMonitor.Controllers;
+namespace AzureIoTHubLogging.Controllers;
 
 public class InputController
 {
@@ -9,7 +9,7 @@ public class InputController
 
     public event EventHandler? RightButtonPressed;
 
-    public InputController(IAmbientMonitorHardware hardware)
+    public InputController(IAzureIoTHubLoggingHardware hardware)
     {
         if (hardware.LeftButton is { } leftButton)
         {

@@ -5,5 +5,15 @@
 
 .bg-custom
 {
-  background-color: #23ABE3;
+  background-color: #056BBF;
+}
+
+.bg-red
+{
+  background-color: #212529;
+}
+
+.bg-blue
+{
+  background-color: #2C3034;
 }

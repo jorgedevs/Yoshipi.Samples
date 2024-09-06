@@ -7,15 +7,15 @@ using Meadow.Peripherals.Sensors.Buttons;
 using Meadow.Units;
 using YoshiPi;
 
-namespace AmbientMonitor.Hardware;
+namespace AzureIoTHubLogging.Hardware;
 
-public class AmbientMonitorHardware : IAmbientMonitorHardware
+public class AzureIoTHubLoggingHardware : IAzureIoTHubLoggingHardware
 {
     private readonly IButton? leftButton;
     private readonly IButton? rightButton;
     private readonly IColorInvertableDisplay? display;
     private readonly INetworkAdapter? networkAdapter;
-    private readonly ITemperatureSensor? temperatureSimulator;
+    private readonly ITemperatureSensor? temperatureSensor;
     private readonly IBarometricPressureSensor? barometricPressureSensor;
     private readonly IHumiditySensor? humiditySensor;
 
@@ -27,13 +27,13 @@ public class AmbientMonitorHardware : IAmbientMonitorHardware
 
     public INetworkAdapter? NetworkAdapter => networkAdapter;
 
-    public ITemperatureSensor? TemperatureSensor => temperatureSimulator;
+    public ITemperatureSensor? TemperatureSensor => temperatureSensor;
 
     public IBarometricPressureSensor? BarometricPressureSensor => barometricPressureSensor;
 
     public IHumiditySensor? HumiditySensor => humiditySensor;
 
-    public AmbientMonitorHardware(IYoshiPiHardware yoshiPi)
+    public AzureIoTHubLoggingHardware(IYoshiPiHardware yoshiPi)
     {
         display = yoshiPi.Display;
 
@@ -41,7 +41,7 @@ public class AmbientMonitorHardware : IAmbientMonitorHardware
 
         rightButton = yoshiPi.Button2;
 
-        temperatureSimulator = new SimulatedTemperatureSensor(
+        temperatureSensor = new SimulatedTemperatureSensor(
             new Temperature(20, Temperature.UnitType.Celsius),
             new Temperature(18, Temperature.UnitType.Celsius),
             new Temperature(25, Temperature.UnitType.Celsius));

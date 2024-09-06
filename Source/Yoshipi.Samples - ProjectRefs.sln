@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeadowCloudLogging", "Meado
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeadowCloudCommands", "MeadowCloudCommands\MeadowCloudCommands.csproj", "{57EB2164-0C76-4D08-8C5F-94866E7177DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientMonitor", "AmbientMonitor\AmbientMonitor.csproj", "{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureIoTHubLogging", "AmbientMonitor\AzureIoTHubLogging.csproj", "{399F7E3B-ABFA-4DE2-9017-E287A30AEDAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_External", "_External", "{FD9EA284-FC04-4431-B93F-2D337F9A6B81}"
 EndProject

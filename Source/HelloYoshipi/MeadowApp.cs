@@ -1,4 +1,6 @@
 ﻿using Meadow;
+using Meadow.Foundation.Sensors.Atmospheric;
+using System;
 using System.Threading.Tasks;
 using YoshiPi;
 
@@ -6,23 +8,26 @@ namespace HelloYoshipi;
 
 public class MeadowApp : YoshiPiApp
 {
-    private DisplayController? displayController;
+    Htu21d? sensor;
 
     public override Task Initialize()
     {
-        Resolver.Log.Info("Initialize...");
+        Resolver.Log.Info("Initializing...");
 
-        Hardware.Display.InvertDisplayColor(true);
+        sensor = new Htu21d(Hardware.GroveI2c);
 
-        displayController = new DisplayController(Hardware.Display, Hardware.Touchscreen);
+        sensor.Updated += (sender, result) =>
+        {
+            Resolver.Log.Info($"  Temperature: {result.New.Temperature?.Celsius:F1}C");
+            Resolver.Log.Info($"  Relative Humidity: {result.New.Humidity?.Percent:F1}%");
+        };
 
         return Task.CompletedTask;
     }
 
     public override async Task Run()
     {
-        Resolver.Log.Info("Run...");
-
-        await displayController?.Start();
+        if (sensor == null) { return; }
+        sensor.StartUpdating(TimeSpan.FromSeconds(1));
     }
 }

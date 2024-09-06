@@ -15,7 +15,7 @@ public class Secrets
     /// <summary>
     /// example "SharedAccessSignature sr=MeadowIoTHub ..... "
     /// 
-    /// az iot hub generate-sas-token --hub-name jorgedevs-iot-hub-02 --device-id jorgedevs-device --resource-group jorgedevs-resource-group --login HostName=jorgedevs-iot-hub-02.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=DaCmwV1p9T1AVyDwfKofdGmt4titFwRbkAIoTBdwwMk=
+    /// az iot hub generate-sas-token --hub-name HUB_NAME --device-id DEVICE_ID --resource-group RESOURCE_GROUP --login [Open Shared access policies -> Select iothubowner -> copy Primary connection string]
     /// </summary>
     public const string SAS_TOKEN = "SAS_TOKEN";
 }

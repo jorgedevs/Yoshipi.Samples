@@ -4,20 +4,18 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
     <ItemGroup>
-      <None Remove="Resources\image.bmp" />
+        <None Remove="Resources\image.bmp" />
     </ItemGroup>
+
     <ItemGroup>
-      <EmbeddedResource Include="Resources\image.bmp" />
+        <EmbeddedResource Include="Resources\image.bmp" />
     </ItemGroup>
+
     <ItemGroup>
-      <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-      <PackageReference Include="Meadow.Foundation.Sensors.Atmospheric.Htux1d" Version="1.13.0" />
-      <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
+        <PackageReference Include="Meadow.Foundation.Sensors.Atmospheric.Htux1d" Version="1.13.0" />
     </ItemGroup>
-    
-    <!--<ItemGroup>
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
-    </ItemGroup>-->
 </Project>

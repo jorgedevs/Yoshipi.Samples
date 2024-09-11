@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <None Remove="Resources\img_meadow.bmp" />
         <None Remove="Resources\img_refreshed.bmp" />
@@ -38,7 +38,7 @@
         <None Remove="w_snow.bmp" />
         <None Remove="w_storm.bmp" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <EmbeddedResource Include="Resources\img_meadow.bmp" />
         <EmbeddedResource Include="Resources\img_refreshing.bmp" />
@@ -69,16 +69,10 @@
         <EmbeddedResource Include="Resources\w_storm_light_moon.bmp" />
         <EmbeddedResource Include="Resources\w_storm_light_sun.bmp" />
     </ItemGroup>
-    
-    <!--
-    <ItemGroup>
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="*" />
-    </ItemGroup>
-    -->
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
     </ItemGroup>
 
     <ItemGroup>

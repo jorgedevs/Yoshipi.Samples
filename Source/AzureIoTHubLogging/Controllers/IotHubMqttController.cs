@@ -84,7 +84,7 @@ public class IoTHubMqttController
 
             await mqttClient.PublishAsync(mqttMessage, new System.Threading.CancellationToken());
 
-            Resolver.Log.Info($"*** MQTT - DATA SENT - Temperature - {Temperature.Value.Celsius}, Humidity - {Humidity.Value.Percent}, Pressure - {Pressure.Value.Millibar} ***");
+            Resolver.Log.Info($"*** MQTT - DATA SENT: Temperature - {Temperature.Value.Celsius:N2}°C, Humidity - {Humidity.Value.Percent:N2}%, Pressure - {Pressure.Value.Millibar:N2}mbar ***");
         }
         catch (Exception ex)
         {

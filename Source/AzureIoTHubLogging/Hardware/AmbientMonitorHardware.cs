@@ -46,9 +46,9 @@ public class AzureIoTHubLoggingHardware : IAzureIoTHubLoggingHardware
             new Temperature(18, Temperature.UnitType.Celsius),
             new Temperature(25, Temperature.UnitType.Celsius));
 
-        barometricPressureSensor = new SimulatedBarometricPressureSensor();
-
         humiditySensor = new SimulatedHumiditySensor();
+
+        barometricPressureSensor = new SimulatedBarometricPressureSensor();
 
         networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
     }

@@ -1,6 +1,6 @@
-﻿using AmbientMonitor.Controllers;
-using AmbientMonitor.Hardware;
-using AmbientMonitor.Models;
+﻿using AzureIoTHubLogging.Controllers;
+using AzureIoTHubLogging.Hardware;
+using AzureIoTHubLogging.Models;
 using Meadow;
 using Meadow.Logging;
 using System;
@@ -8,14 +8,15 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AmbientMonitor;
+namespace AzureIoTHubLogging;
 
 public class MainController
 {
-    private IAmbientMonitorHardware? hardware;
+    private IAzureIoTHubLoggingHardware? hardware;
     private SensorController sensorController;
     private DisplayController displayController;
     private InputController inputController;
+    private IoTHubMqttController iotHubController;
 
     private int currentGraphType = 0;
 
@@ -23,10 +24,13 @@ public class MainController
     private List<double> pressureReadings = new List<double>();
     private List<double> humidityReadings = new List<double>();
 
-    public MainController(IAmbientMonitorHardware hardware)
+    public MainController(IAzureIoTHubLoggingHardware hardware)
     {
         this.hardware = hardware;
+    }
 
+    public async Task Initialize()
+    {
         sensorController = new SensorController(hardware);
         sensorController.Updated += SensorControllerUpdated;
 
@@ -38,13 +42,48 @@ public class MainController
         inputController.LeftButtonPressed += LeftButtonPressed;
         inputController.RightButtonPressed += RightButtonPressed;
 
-        displayController = new DisplayController(this.hardware.Display);
+        displayController = new DisplayController(hardware.Display);
         displayController.ShowSplashScreen();
         Thread.Sleep(3000);
         displayController.ShowDataScreen();
+
+        iotHubController = new IoTHubMqttController();
+        await InitializeIoTHub();
     }
 
-    private void SensorControllerUpdated(object sender, AtmosphericConditions e)
+    private async Task InitializeIoTHub()
+    {
+        while (!iotHubController.isAuthenticated)
+        {
+            displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
+
+            if (hardware.NetworkAdapter.IsConnected)
+            {
+                displayController.UpdateStatus("Authenticating...");
+
+                bool authenticated = await iotHubController.Initialize();
+
+                if (authenticated)
+                {
+                    displayController.UpdateStatus("Authenticated");
+                    await Task.Delay(2000);
+                    displayController.UpdateStatus(DateTime.Now.ToString("hh:mm tt dd/MM/yy"));
+                }
+                else
+                {
+                    displayController.UpdateStatus("Not Authenticated");
+                }
+            }
+            else
+            {
+                displayController.UpdateStatus("Offline");
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(5));
+        }
+    }
+
+    private async void SensorControllerUpdated(object sender, AtmosphericConditions e)
     {
         displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
 
@@ -72,13 +111,7 @@ public class MainController
             displayController.UpdateStatus("Sending data...");
             Thread.Sleep(2000);
 
-            var cloudLogger = Resolver.Services.Get<CloudLogger>();
-            cloudLogger?.LogEvent(1000, "environment reading", new Dictionary<string, object>()
-            {
-                { "temperature", $"{e.Temperature.Celsius:N2}" },
-                { "pressure", $"{e.Pressure.Millibar:N2}" },
-                { "humidity", $"{e.Humidity.Percent:N2}" },
-            });
+            await iotHubController.SendEnvironmentalReading(e.Temperature, e.Humidity, e.Pressure);
 
             displayController.UpdateStatus("Data sent!");
             Thread.Sleep(2000);
@@ -127,7 +160,7 @@ public class MainController
 
     public Task Run()
     {
-        _ = sensorController.StartUpdating(TimeSpan.FromMinutes(1));
+        _ = sensorController.StartUpdating(TimeSpan.FromSeconds(15));
 
         return Task.CompletedTask;
     }

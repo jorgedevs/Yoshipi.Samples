@@ -31,7 +31,7 @@
     -->
     
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Meadow.Foundation.Grove\Source\4-ChannelSpdtRelay\Driver\4-ChannelSpdtRelay.csproj" />
+      <ProjectReference Include="..\..\..\..\WildernessLabs\Meadow.Foundation.Grove\Source\4-ChannelSpdtRelay\Driver\4-ChannelSpdtRelay.csproj" />
       <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
     </ItemGroup>
     

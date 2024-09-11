@@ -4,9 +4,9 @@ using Meadow.Peripherals.Sensors;
 using Meadow.Peripherals.Sensors.Atmospheric;
 using Meadow.Peripherals.Sensors.Buttons;
 
-namespace AmbientMonitor.Hardware;
+namespace AzureIoTHubLogging.Hardware;
 
-public interface IAmbientMonitorHardware
+public interface IAzureIoTHubLoggingHardware
 {
     IButton? LeftButton { get; }
 

@@ -1,11 +1,11 @@
-﻿using AmbientMonitor.Hardware;
-using AmbientMonitor.Models;
+﻿using AzureIoTHubLogging.Hardware;
+using AzureIoTHubLogging.Models;
 using Meadow.Peripherals.Sensors;
 using Meadow.Peripherals.Sensors.Atmospheric;
 using System;
 using System.Threading.Tasks;
 
-namespace AmbientMonitor.Controllers;
+namespace AzureIoTHubLogging.Controllers;
 
 public class SensorController
 {
@@ -19,7 +19,7 @@ public class SensorController
 
     public event EventHandler<AtmosphericConditions> Updated = default!;
 
-    public SensorController(IAmbientMonitorHardware hardware)
+    public SensorController(IAzureIoTHubLoggingHardware hardware)
     {
         temperatureSensor = hardware.TemperatureSensor;
         barometricPressureSensor = hardware.BarometricPressureSensor;

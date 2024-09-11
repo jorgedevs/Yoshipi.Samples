@@ -1,7 +1,7 @@
 ﻿using Meadow;
 using System.Threading.Tasks;
 
-namespace AmbientMonitor;
+namespace AzureIoTHubLogging;
 
 public class Program
 {

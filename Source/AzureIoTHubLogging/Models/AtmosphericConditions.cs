@@ -1,6 +1,6 @@
 ﻿using Meadow.Units;
 
-namespace AmbientMonitor.Models;
+namespace AzureIoTHubLogging.Models;
 
 public class AtmosphericConditions
 {

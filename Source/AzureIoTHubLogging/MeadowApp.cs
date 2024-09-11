@@ -1,24 +1,23 @@
-﻿using AmbientMonitor.Hardware;
+﻿using AzureIoTHubLogging.Hardware;
 using Meadow;
 using System.Threading.Tasks;
 using YoshiPi;
 
-namespace AmbientMonitor;
+namespace AzureIoTHubLogging;
 
 public class MeadowApp : YoshiPiApp
 {
     private MainController? mainController;
 
-    public override Task Initialize()
+    public override async Task Initialize()
     {
         Resolver.Log.Info("Initialize...");
 
         Hardware.Display.InvertDisplayColor(true);
 
-        var hardware = new AmbientMonitorHardware(Hardware);
+        var hardware = new AzureIoTHubLoggingHardware(Hardware);
         mainController = new MainController(hardware);
-
-        return Task.CompletedTask;
+        await mainController.Initialize();
     }
 
     public override Task Run()

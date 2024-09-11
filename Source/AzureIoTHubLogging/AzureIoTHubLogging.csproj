@@ -13,9 +13,15 @@
         <EmbeddedResource Include="Resources\img_meadow.bmp" />
     </ItemGroup>
 
+    <!--
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
-        <PackageReference Include="Meadow.Logging.LogProviders" Version="1.13.0" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
+        <PackageReference Include="Meadow.Logging.LogProviders" Version="*" />
+    </ItemGroup>
+    -->
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\WildernessLabs\Meadow.Logging\Source\Meadow.Logging.LogProviders\Driver\Meadow.Logging.LogProviders.csproj" />
+        <ProjectReference Include="..\..\..\Yoshipi\Source\dotnet\Driver\YoshiPi.Hardware.csproj" />
     </ItemGroup>
 </Project>

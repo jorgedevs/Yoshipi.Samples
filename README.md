@@ -27,8 +27,8 @@ Project Samples:
     <tr>
         <td>
             <img src="Design/raspberrypi-yoshipi-meadow-ambient-monitor.jpg" alt="Raspberry Pi YoshiPi meadow cloud ambient monitor"/><br/>
-            Graph environmental data using simulated sensors</br>
-            <a href="Source/AmbientMonitor/">Source Code</a>
+            Send and graph environmental data with Azure IoT Hub</br>
+            <a href="Source/AzureIoTHubLogging/">Source Code</a>
         </td>
         <td>
             <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>

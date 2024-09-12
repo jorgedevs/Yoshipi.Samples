@@ -26,9 +26,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.1.0" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-        <PackageReference Include="Meadow.Foundation.Grove.Relays.4-ChannelSpdtRelay" Version="1.13.0" />
+        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.2.0" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.14.0" />
+        <PackageReference Include="Meadow.Foundation.Grove.Relays.4-ChannelSpdtRelay" Version="1.14.0" />
     </ItemGroup>
 
     <ItemGroup>

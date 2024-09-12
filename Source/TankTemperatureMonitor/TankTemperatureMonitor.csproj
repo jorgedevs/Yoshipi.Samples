@@ -14,10 +14,10 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.13.0" />
-        <PackageReference Include="Meadow.Foundation.Sensors.Temperature.Mcp960x" Version="1.13.0" />
+        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.14.0" />
+        <PackageReference Include="Meadow.Foundation.Sensors.Temperature.Mcp960x" Version="1.14.0" />
         <PackageReference Include="YoshiMaker.YoshiPi" Version="*" />
-        <PackageReference Include="Meadow.Logging.LogProviders" Version="1.13.0" />
+        <PackageReference Include="Meadow.Logging.LogProviders" Version="1.14.0" />
     </ItemGroup>
     
     <ItemGroup>

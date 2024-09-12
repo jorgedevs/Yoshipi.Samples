@@ -18,16 +18,23 @@ public class MeadowApp : YoshiPiApp
         Hardware.Display.InvertDisplayColor(true);
         displayController = new DisplayController(Hardware.Display);
 
+        // Real sensors (using an Htu21d sensor)
+        //var sensor = new Htu21d(Hardware.Qwiic);
+        //var temperatureSensor = (ITemperatureSensor)sensor;
+        //var humiditySensor = (IHumiditySensor)sensor;
+
+        // Simulated sensors
         var temperatureSensor = new SimulatedTemperatureSensor(
             initialTemperature: new Temperature(22.5),
             minimumTemperature: new Temperature(20.0),
             maximumTemperature: new Temperature(25.0));
-        temperatureSensor.Updated += TemperatureSensorUpdated;
-        temperatureSensor.StartUpdating(TimeSpan.FromSeconds(5));
-
         var humiditySensor = new SimulatedHumiditySensor();
-        humiditySensor.Updated += HumiditySensorUpdated; ;
-        humiditySensor.StartUpdating(TimeSpan.FromSeconds(5));
+
+        temperatureSensor.Updated += TemperatureSensorUpdated;
+        temperatureSensor.StartUpdating(TimeSpan.FromSeconds(1));
+
+        humiditySensor.Updated += HumiditySensorUpdated;
+        humiditySensor.StartUpdating(TimeSpan.FromSeconds(1));
 
         return Task.CompletedTask;
     }

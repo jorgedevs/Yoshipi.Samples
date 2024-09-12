@@ -20,16 +20,7 @@ public class DisplayController
 
         displayScreen = new DisplayScreen((IPixelDisplay)display, RotationType._270Degrees);
 
-        displayScreen.BackgroundColor = Color.FromHex("FFFFFF");
-
-        displayScreen.Controls.Add(new Box(
-            left: 0,
-            top: 0,
-            width: displayScreen.Width,
-            height: displayScreen.Height)
-        {
-            ForeColor = Color.FromHex("FFFFFF")
-        });
+        displayScreen.BackgroundColor = Color.FromHex("056BBF");
 
         temperature = new Label(
             left: 0,
@@ -39,7 +30,7 @@ public class DisplayController
         {
             Text = "TEMPERATURE:0.0°C",
             Font = new Font12x16(),
-            TextColor = Color.FromHex("1E2834"),
+            TextColor = Color.White,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center
         };
@@ -53,7 +44,7 @@ public class DisplayController
         {
             Text = "HUMIDITY:0.0%",
             Font = new Font12x16(),
-            TextColor = Color.FromHex("1E2834"),
+            TextColor = Color.White,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center
         };

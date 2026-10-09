@@ -1,9 +1,9 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Foundation.Hmi;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Graphics.Hmi;
+using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
 using System;
 using System.IO;
 using System.Threading;
@@ -100,7 +100,7 @@ public class DisplayController
         var image = Image.LoadFromResource("GroveRelayController.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
-            BackColor = backgroundColor,
+            BackgroundColor = backgroundColor,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -116,7 +116,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, displayScreen.Width, rowHeight)
         {
-            ForeColor = shadowColor
+            ForegroundColor = shadowColor
         });
 
         dataLayout.Controls.Add(new Label(0, 20, displayScreen.Width, 20)
@@ -129,7 +129,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, rowHeight, displayScreen.Width, displayScreen.Height - rowHeight)
         {
-            ForeColor = backgroundColor
+            ForegroundColor = backgroundColor
         });
 
         int relayWidth = 71;
@@ -145,7 +145,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -172,7 +172,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -199,7 +199,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -226,7 +226,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor

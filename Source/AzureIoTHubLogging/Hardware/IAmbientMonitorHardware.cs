@@ -1,8 +1,8 @@
-﻿using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
-using Meadow.Peripherals.Sensors;
-using Meadow.Peripherals.Sensors.Atmospheric;
-using Meadow.Peripherals.Sensors.Buttons;
+﻿using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Peripherals.Sensors;
+using FieldStack.Peripherals.Sensors.Atmospheric;
+using FieldStack.Peripherals.Sensors.Buttons;
 
 namespace AzureIoTHubLogging.Hardware;
 

@@ -1,7 +1,7 @@
 ﻿using AzureIoTHubLogging.Hardware;
 using AzureIoTHubLogging.Models;
-using Meadow.Peripherals.Sensors;
-using Meadow.Peripherals.Sensors.Atmospheric;
+using FieldStack.Peripherals.Sensors;
+using FieldStack.Peripherals.Sensors.Atmospheric;
 using System;
 using System.Threading.Tasks;
 

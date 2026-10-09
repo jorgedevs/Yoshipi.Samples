@@ -1,8 +1,7 @@
-﻿using Meadow;
-using Meadow.Units;
+using FieldStack;
+using FieldStack.Units;
 using MQTTnet;
 using MQTTnet.Client;
-using MQTTnet.Client.Options;
 using System;
 using System.Security.Authentication;
 using System.Threading.Tasks;
@@ -41,11 +40,7 @@ public class IoTHubMqttController
                 .WithTcpServer(iotHubUri, 8883)
                 .WithCredentials(username, IOT_HUB_SAS_TOKEN)
                 .WithProtocolVersion(MQTTnet.Formatter.MqttProtocolVersion.V311)
-                .WithTls(new MqttClientOptionsBuilderTlsParameters
-                {
-                    UseTls = true,
-                    SslProtocol = SslProtocols.Tls12,
-                })
+                .WithTlsOptions(o => o.UseTls().WithSslProtocols(SslProtocols.Tls12))
                 .Build();
 
 

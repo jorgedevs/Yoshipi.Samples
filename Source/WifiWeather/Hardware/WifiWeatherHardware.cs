@@ -1,7 +1,7 @@
-﻿using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
-using Meadow.Peripherals.Sensors.Buttons;
-using YoshiPi;
+﻿using FieldStack.Hardware;
+using FieldStack.Samples;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Peripherals.Sensors.Buttons;
 
 namespace WifiWeather.Hardware;
 
@@ -20,7 +20,7 @@ public class WifiWeatherHardware : IWifiWeatherHardware
 
     public INetworkAdapter? NetworkAdapter => networkAdapter;
 
-    public WifiWeatherHardware(IYoshiPiHardware yoshiPi)
+    public WifiWeatherHardware(YoshiPi yoshiPi, INetworkAdapter? networkAdapter)
     {
         display = yoshiPi.Display;
 
@@ -28,6 +28,6 @@ public class WifiWeatherHardware : IWifiWeatherHardware
 
         rightButton = yoshiPi.Button2;
 
-        networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
+        this.networkAdapter = networkAdapter;
     }
 }

@@ -1,6 +1,6 @@
-﻿using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
-using Meadow.Peripherals.Sensors.Buttons;
+﻿using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Peripherals.Sensors.Buttons;
 
 namespace WifiWeather.Hardware;
 

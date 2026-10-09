@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="AzureIoTHubLogging/AzureIoTHubLogging.csproj" />
+  <Project Path="GroveRelayController/GroveRelayController.csproj" />
+  <Project Path="HelloYoshipi/HelloYoshipi.csproj" />
+  <Project Path="SensorsSample/SensorsSample.csproj" />
+  <Project Path="TankTemperatureMonitor/TankTemperatureMonitor.csproj" />
+  <Project Path="WifiWeather/WifiWeather.csproj" />
+</Solution>

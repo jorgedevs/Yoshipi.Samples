@@ -1,13 +1,4 @@
-﻿using Meadow;
-using System.Threading.Tasks;
+using FieldStack;
+using TankTemperatureMonitor;
 
-namespace TankTemperatureMonitor
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            await MeadowOS.Start(args);
-        }
-    }
-}
+await FieldStackHost.Start<TankTemperatureMonitorApp>(args);

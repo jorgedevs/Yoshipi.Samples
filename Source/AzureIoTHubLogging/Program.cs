@@ -1,12 +1,4 @@
-﻿using Meadow;
-using System.Threading.Tasks;
+using FieldStack;
+using AzureIoTHubLogging;
 
-namespace AzureIoTHubLogging;
-
-public class Program
-{
-    public static async Task Main(string[] args)
-    {
-        await MeadowOS.Start(args);
-    }
-}
+await FieldStackHost.Start<AzureIoTHubLoggingApp>(args);

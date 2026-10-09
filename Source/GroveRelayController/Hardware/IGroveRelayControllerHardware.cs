@@ -1,6 +1,6 @@
-﻿using Meadow.Foundation.Grove.Relays;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
+using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Peripherals.Sensors.Hid;
 
 namespace GroveRelayController.Hardware;
 

@@ -1,9 +1,12 @@
-﻿<Project Sdk="Meadow.Sdk/1.1.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <RootNamespace>AzureIoTHubLogging</RootNamespace>
+        <AssemblyName>AzureIoTHubLogging</AssemblyName>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Common\YoshiPi.cs" Link="YoshiPi.cs" />
+    </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Include="Resources\img-sync-fade.bmp" />
@@ -14,8 +17,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.2.0" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.14.0" />
-        <PackageReference Include="Meadow.Logging.LogProviders" Version="1.14.0" />
+        <ProjectReference Include="$(FieldStackRoot)Source\FieldStack.Core\FieldStack.Core.csproj" />
+        <PackageReference Include="MQTTnet" Version="4.3.7.1207" />
+        <ProjectReference Include="$(FieldStackRoot)Source\FieldStack.Linux\FieldStack.Linux.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\Displays.TftSpi\Driver\Displays.TftSpi.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\ICs.IOExpanders.Mcp23xxx\Driver\ICs.IOExpanders.Mcp23xxx.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\Sensors.Hid.Xpt2046\Driver\Sensors.Hid.Xpt2046.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Frameworks\Graphics.MicroLayout\Driver\Graphics.MicroLayout.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\FieldStack.Logging.LogProviders\Driver\FieldStack.Logging.LogProviders.csproj" />
     </ItemGroup>
 </Project>

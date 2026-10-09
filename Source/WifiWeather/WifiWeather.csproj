@@ -1,9 +1,12 @@
-﻿<Project Sdk="Meadow.Sdk/1.1.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <RootNamespace>WifiWeather</RootNamespace>
+        <AssemblyName>WifiWeather</AssemblyName>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Common\YoshiPi.cs" Link="YoshiPi.cs" />
+    </ItemGroup>
 
     <ItemGroup>
         <None Remove="Resources\img_meadow.bmp" />
@@ -70,14 +73,13 @@
         <EmbeddedResource Include="Resources\w_storm_light_sun.bmp" />
     </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="YoshiMaker.YoshiPi" Version="1.2.0" />
-        <PackageReference Include="Meadow.Foundation.Graphics.MicroLayout" Version="1.14.0" />
-    </ItemGroup>
 
     <ItemGroup>
-        <None Update="app.config.yaml">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
+        <ProjectReference Include="$(FieldStackRoot)Source\FieldStack.Core\FieldStack.Core.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\FieldStack.Linux\FieldStack.Linux.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\Displays.TftSpi\Driver\Displays.TftSpi.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\ICs.IOExpanders.Mcp23xxx\Driver\ICs.IOExpanders.Mcp23xxx.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Drivers\Sensors.Hid.Xpt2046\Driver\Sensors.Hid.Xpt2046.csproj" />
+        <ProjectReference Include="$(FieldStackRoot)Source\Frameworks\Graphics.MicroLayout\Driver\Graphics.MicroLayout.csproj" />
     </ItemGroup>
 </Project>

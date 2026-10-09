@@ -15,15 +15,20 @@ jobs:
     steps:
 
     - name: Checkout Yoshipi.Samples
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: Yoshipi.Samples
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+    - name: Checkout FieldStack
+      uses: actions/checkout@v4
       with:
-        dotnet-version: 
-          8.0.x
-      
+        repository: FieldStackIoT/FieldStack
+        path: FieldStack
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+
     - name: Build Yoshipi.Samples
-      run: dotnet build -c Release Yoshipi.Samples/Source/Yoshipi.Samples.sln
+      run: dotnet build -c Release Yoshipi.Samples/Source/Yoshipi.Samples.slnx

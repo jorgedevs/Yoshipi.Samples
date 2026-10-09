@@ -1,11 +1,11 @@
-﻿using Meadow.Foundation.Sensors;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
-using Meadow.Peripherals.Sensors;
-using Meadow.Peripherals.Sensors.Atmospheric;
-using Meadow.Peripherals.Sensors.Buttons;
-using Meadow.Units;
-using YoshiPi;
+﻿using FieldStack.Drivers.Sensors;
+using FieldStack.Samples;
+using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Peripherals.Sensors;
+using FieldStack.Peripherals.Sensors.Atmospheric;
+using FieldStack.Peripherals.Sensors.Buttons;
+using FieldStack.Units;
 
 namespace AzureIoTHubLogging.Hardware;
 
@@ -33,7 +33,7 @@ public class AzureIoTHubLoggingHardware : IAzureIoTHubLoggingHardware
 
     public IHumiditySensor? HumiditySensor => humiditySensor;
 
-    public AzureIoTHubLoggingHardware(IYoshiPiHardware yoshiPi)
+    public AzureIoTHubLoggingHardware(YoshiPi yoshiPi, INetworkAdapter? networkAdapter)
     {
         display = yoshiPi.Display;
 
@@ -50,6 +50,6 @@ public class AzureIoTHubLoggingHardware : IAzureIoTHubLoggingHardware
 
         barometricPressureSensor = new SimulatedBarometricPressureSensor();
 
-        networkAdapter = MeadowApp.Hardware.ComputeModule.NetworkAdapters.Primary<IWiFiNetworkAdapter>();
+        this.networkAdapter = networkAdapter;
     }
 }

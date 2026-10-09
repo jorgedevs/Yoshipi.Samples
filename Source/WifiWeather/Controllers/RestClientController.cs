@@ -1,5 +1,5 @@
-﻿using Meadow;
-using Meadow.Foundation.Serialization;
+using FieldStack;
+using FieldStack.Serialization;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;

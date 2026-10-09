@@ -1,8 +1,8 @@
 ﻿using AzureIoTHubLogging.Controllers;
 using AzureIoTHubLogging.Hardware;
 using AzureIoTHubLogging.Models;
-using Meadow;
-using Meadow.Logging;
+using FieldStack;
+using FieldStack.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -33,10 +33,6 @@ public class MainController
     {
         sensorController = new SensorController(hardware);
         sensorController.Updated += SensorControllerUpdated;
-
-        var cloudLogger = new CloudLogger();
-        Resolver.Log.AddProvider(cloudLogger);
-        Resolver.Services.Add(cloudLogger);
 
         inputController = new InputController(hardware);
         inputController.LeftButtonPressed += LeftButtonPressed;

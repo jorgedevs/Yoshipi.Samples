@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+cd "$(dirname "$0")"
+export HOME=/data
+config=$(echo *.runtimeconfig.json)
+case "$config" in
+  "*.runtimeconfig.json"|*\ *)
+    echo "expected one published app beside run" >&2
+    exit 1
+    ;;
+esac
+exec "./${config%.runtimeconfig.json}" "$@"

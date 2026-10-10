@@ -77,7 +77,7 @@ public class DisplayController
             IsVisible = false
         };
 
-        var image = Image.LoadFromResource("WifiWeather.Resources.img_meadow.bmp");
+        var image = Image.LoadFromResource("WifiWeather.Resources.img_splash.bmp");
         var displayImage = new Picture(0, 0, DisplayScreen.Width, DisplayScreen.Height, image)
         {
             BackgroundColor = Color.FromHex("#14607F"),

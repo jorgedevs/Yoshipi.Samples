@@ -5,13 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="Resources\img_meadow.bmp" />
+        <None Remove="Resources\img_splash.bmp" />
         <None Remove="Resources\img_relay_off.bmp" />
         <None Remove="Resources\img_relay_on.bmp" />
     </ItemGroup>
     
     <ItemGroup>
-        <EmbeddedResource Include="Resources\img_meadow.bmp" />
+        <EmbeddedResource Include="Resources\img_splash.bmp" />
         <EmbeddedResource Include="Resources\img_relay_on.bmp" />
         <EmbeddedResource Include="Resources\img_relay_off.bmp" />
     </ItemGroup>

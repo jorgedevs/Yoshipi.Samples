@@ -19,19 +19,19 @@ Project Samples:
     </tr>
     <tr>
         <td>
-            <img src="Design/raspberrypi-yoshipi-meadow-ambient-monitor.jpg" alt="Raspberry Pi YoshiPi meadow cloud ambient monitor"/><br/>
+            <img src="Design/raspberrypi-yoshipi-meadow-ambient-monitor.jpg" alt="Raspberry Pi YoshiPi Azure IoT Hub ambient monitor"/><br/>
             Send and graph environmental data with Azure IoT Hub</br>
             <a href="Source/AzureIoTHubLogging/">Source Code</a>
         </td>
         <td>
-            <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
+            <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi 4-channel relay touchscreen controller"/><br/>
             Control a 4-channel relay on an interactive HMI with a touchscreen</br> 
             <a href="Source/GroveRelayController/">Source Code</a>
         </td>
     </tr>
         <tr>
         <td>
-            <img src="Design/raspberrypi-yoshipi-sensors-sample.jpg" alt="Raspberry Pi YoshiPi meadow cloud htu21d monitor"/><br/>
+            <img src="Design/raspberrypi-yoshipi-sensors-sample.jpg" alt="Raspberry Pi YoshiPi HTU21D temperature and humidity monitor"/><br/>
             Swap Simulated Temp/Humidity sensor to an HTU21D</br>
             <a href="Source/SensorsSample/">Source Code</a>
         </td>

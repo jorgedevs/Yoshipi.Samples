@@ -65,7 +65,7 @@ public class DisplayController
             IsVisible = false
         };
 
-        var image = Image.LoadFromResource("AzureIoTHubLogging.Resources.img_meadow.bmp");
+        var image = Image.LoadFromResource("AzureIoTHubLogging.Resources.img_splash.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
             BackgroundColor = FieldStack.Color.FromHex("575E3C"),

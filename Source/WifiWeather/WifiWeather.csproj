@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="Resources\img_meadow.bmp" />
+        <None Remove="Resources\img_splash.bmp" />
         <None Remove="Resources\img_refreshed.bmp" />
         <None Remove="Resources\img_refreshing.bmp" />
         <None Remove="Resources\img_wifi_connected.bmp" />
@@ -39,7 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Resources\img_meadow.bmp" />
+        <EmbeddedResource Include="Resources\img_splash.bmp" />
         <EmbeddedResource Include="Resources\img_refreshing.bmp" />
         <EmbeddedResource Include="Resources\img_refreshed.bmp" />
         <EmbeddedResource Include="Resources\img_wifi_connected.bmp" />

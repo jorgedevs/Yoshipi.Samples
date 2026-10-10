@@ -13,7 +13,7 @@ public class Secrets
     public const string DEVICE_ID = "DEVICE_ID";
 
     /// <summary>
-    /// example "SharedAccessSignature sr=MeadowIoTHub ..... "
+    /// example "SharedAccessSignature sr=MyIoTHub ..... "
     /// 
     /// az iot hub generate-sas-token --hub-name HUB_NAME --device-id DEVICE_ID --resource-group RESOURCE_GROUP --login [Open Shared access policies -> Select iothubowner -> copy Primary connection string]
     /// </summary>

@@ -1,0 +1,5 @@
+<Project>
+  <Target Name="CopyRunScript" AfterTargets="Publish">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)Common\run" DestinationFiles="$(PublishDir)run" />
+  </Target>
+</Project>

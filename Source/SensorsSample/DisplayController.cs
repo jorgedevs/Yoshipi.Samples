@@ -1,8 +1,8 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Peripherals.Displays;
-using Meadow.Units;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Units;
 
 namespace SensorsSample;
 

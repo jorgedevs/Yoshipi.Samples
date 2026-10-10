@@ -1,7 +1,7 @@
 ﻿using AzureIoTHubLogging.Hardware;
 using AzureIoTHubLogging.Models;
-using Meadow.Peripherals.Sensors;
-using Meadow.Peripherals.Sensors.Atmospheric;
+using FieldStack.Peripherals.Sensors;
+using FieldStack.Peripherals.Sensors.Atmospheric;
 using System;
 using System.Threading.Tasks;
 
@@ -11,11 +11,11 @@ public class SensorController
 {
     private TimeSpan SAMPLE_INTERVAL = TimeSpan.FromSeconds(15);
 
-    private ITemperatureSensor? temperatureSensor;
-    private IBarometricPressureSensor? barometricPressureSensor;
-    private IHumiditySensor? humiditySensor;
+    private ITemperatureSensor temperatureSensor;
+    private IBarometricPressureSensor barometricPressureSensor;
+    private IHumiditySensor humiditySensor;
 
-    public AtmosphericConditions AtmosphericConditions { get; set; }
+    public AtmosphericConditions AtmosphericConditions { get; set; } = null!;
 
     public event EventHandler<AtmosphericConditions> Updated = default!;
 

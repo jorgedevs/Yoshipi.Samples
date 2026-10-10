@@ -1,7 +1,7 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Peripherals.Displays;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Peripherals.Displays;
 using System.Collections.Generic;
 
 namespace AzureIoTHubLogging.Controllers;
@@ -24,22 +24,22 @@ public class DisplayController
 
     private DisplayScreen displayScreen;
 
-    private AbsoluteLayout splashLayout;
-    private AbsoluteLayout dataLayout;
+    private AbsoluteLayout splashLayout = null!;
+    private AbsoluteLayout dataLayout = null!;
 
-    private LineChartSeries lineChartSeries;
-    private LineChart lineChart;
+    private LineChartSeries lineChartSeries = null!;
+    private LineChart lineChart = null!;
 
-    private Picture wifiStatus;
-    private Picture syncStatus;
+    private Picture wifiStatus = null!;
+    private Picture syncStatus = null!;
 
-    private Label status;
-    private Label latestReading;
-    private Label axisLabels;
-    private Label temperature;
-    private Label pressure;
-    private Label humidity;
-    private Label connectionErrorLabel;
+    private Label status = null!;
+    private Label latestReading = null!;
+    private Label axisLabels = null!;
+    private Label temperature = null!;
+    private Label pressure = null!;
+    private Label humidity = null!;
+    private Label connectionErrorLabel = null!;
 
     public DisplayController(IColorInvertableDisplay display)
     {
@@ -68,7 +68,7 @@ public class DisplayController
         var image = Image.LoadFromResource("AzureIoTHubLogging.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
-            BackColor = Meadow.Color.FromHex("575E3C"),
+            BackgroundColor = FieldStack.Color.FromHex("575E3C"),
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -86,7 +86,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, displayScreen.Width, rowHeight)
         {
-            ForeColor = foregroundColor
+            ForegroundColor = foregroundColor
         });
 
         status = new Label(margin, 15, displayScreen.Width / 2, 20)
@@ -129,7 +129,7 @@ public class DisplayController
             displayScreen.Width - margin * 2,
             graphHeight + axisLabelsHeight)
         {
-            ForeColor = foregroundColor
+            ForegroundColor = foregroundColor
         });
 
         lineChart = new LineChart(
@@ -164,7 +164,7 @@ public class DisplayController
         {
             Text = "Y: Celcius | X: Every minute",
             TextColor = TextColor,
-            BackColor = foregroundColor,
+            BackgroundColor = foregroundColor,
             Font = font6x8,
             VerticalAlignment = VerticalAlignment.Top,
             HorizontalAlignment = HorizontalAlignment.Center
@@ -175,7 +175,7 @@ public class DisplayController
         {
             Text = "TEMPERATURE",
             TextColor = TextColor,
-            BackColor = foregroundColor,
+            BackgroundColor = foregroundColor,
             Font = font8x12,
             VerticalAlignment = VerticalAlignment.Center,
             HorizontalAlignment = HorizontalAlignment.Center
@@ -186,7 +186,7 @@ public class DisplayController
         {
             Text = "PRESSURE",
             TextColor = TextColor,
-            BackColor = backgroundColor,
+            BackgroundColor = backgroundColor,
             Font = font8x12,
             VerticalAlignment = VerticalAlignment.Center,
             HorizontalAlignment = HorizontalAlignment.Center
@@ -197,7 +197,7 @@ public class DisplayController
         {
             Text = "HUMIDITY",
             TextColor = TextColor,
-            BackColor = backgroundColor,
+            BackgroundColor = backgroundColor,
             Font = font8x12,
             VerticalAlignment = VerticalAlignment.Center,
             HorizontalAlignment = HorizontalAlignment.Center
@@ -212,7 +212,7 @@ public class DisplayController
         {
             Text = "NO NETWORK CONNECTION",
             TextColor = TextColor,
-            BackColor = foregroundColor,
+            BackgroundColor = foregroundColor,
             Font = font8x12,
             VerticalAlignment = VerticalAlignment.Center,
             HorizontalAlignment = HorizontalAlignment.Center
@@ -246,22 +246,22 @@ public class DisplayController
     {
         displayScreen.BeginUpdate();
 
-        temperature.BackColor = backgroundColor;
-        pressure.BackColor = backgroundColor;
-        humidity.BackColor = backgroundColor;
+        temperature.BackgroundColor = backgroundColor;
+        pressure.BackgroundColor = backgroundColor;
+        humidity.BackgroundColor = backgroundColor;
 
         switch (graphType)
         {
             case 0:
-                temperature.BackColor = foregroundColor;
+                temperature.BackgroundColor = foregroundColor;
                 axisLabels.Text = "Y: Celcius | X: Every minute";
                 break;
             case 1:
-                pressure.BackColor = foregroundColor;
+                pressure.BackgroundColor = foregroundColor;
                 axisLabels.Text = "Y: Millibar | X: Every minute";
                 break;
             case 2:
-                humidity.BackColor = foregroundColor;
+                humidity.BackgroundColor = foregroundColor;
                 axisLabels.Text = "Y: Percent | X: Every minute";
                 break;
         }

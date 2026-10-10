@@ -1,9 +1,9 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Foundation.Hmi;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Graphics.Hmi;
+using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ public class DisplayController
     private IColorInvertableDisplay display;
     private ICalibratableTouchscreen touchscreen;
     private DisplayScreen displayScreen;
-    private Label label;
+    private Label label = null!;
 
     private int count = 0;
 
@@ -87,7 +87,7 @@ public class DisplayController
         {
             Text = "Click Me",
             Font = new Font12x16(),
-            ForeColor = Color.White,
+            ForegroundColor = Color.White,
             TextColor = Color.FromHex("1E2834"),
             ShadowColor = Color.FromHex("1E2834"),
             HighlightColor = Color.FromHex("1E2834"),
@@ -96,7 +96,7 @@ public class DisplayController
         displayScreen.Controls.Add(button);
     }
 
-    private void ButtonClicked(object sender, EventArgs e)
+    private void ButtonClicked(object? sender, EventArgs e)
     {
         count++;
         string message = $"Clicked {count} times!";

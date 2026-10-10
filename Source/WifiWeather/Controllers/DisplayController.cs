@@ -1,7 +1,7 @@
-using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Peripherals.Displays;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Peripherals.Displays;
 using System;
 using System.Collections.Generic;
 
@@ -27,32 +27,32 @@ public class DisplayController
     private readonly int row3 = 205;
     private Image weatherIcon = Image.LoadFromResource($"WifiWeather.Resources.w_misc.bmp");
 
-    public LineChartSeries OutdoorSeries;
+    public LineChartSeries OutdoorSeries = null!;
     private DisplayScreen DisplayScreen;
-    private AbsoluteLayout SplashLayout;
-    private AbsoluteLayout DataLayout;
-    private LineChart LineChart;
-    private Picture WifiStatus;
-    private Picture SyncStatus;
-    private Picture Weather;
-    private Label Status;
-    private Label Counter;
+    private AbsoluteLayout SplashLayout = null!;
+    private AbsoluteLayout DataLayout = null!;
+    private LineChart LineChart = null!;
+    private Picture WifiStatus = null!;
+    private Picture SyncStatus = null!;
+    private Picture Weather = null!;
+    private Label Status = null!;
+    private Label Counter = null!;
 
-    private Box TemperatureBox;
-    private Label TemperatureLabel;
-    private Label TemperatureValue;
+    private Box TemperatureBox = null!;
+    private Label TemperatureLabel = null!;
+    private Label TemperatureValue = null!;
 
-    private Box PressureBox;
-    private Label PressureLabel;
-    private Label PressureValue;
+    private Box PressureBox = null!;
+    private Label PressureLabel = null!;
+    private Label PressureValue = null!;
 
-    private Box HumidityBox;
-    private Label HumidityLabel;
-    private Label HumidityValue;
+    private Box HumidityBox = null!;
+    private Label HumidityLabel = null!;
+    private Label HumidityValue = null!;
 
-    private Label FeelsLike;
-    private Label Sunrise;
-    private Label Sunset;
+    private Label FeelsLike = null!;
+    private Label Sunrise = null!;
+    private Label Sunset = null!;
 
     public DisplayController(IColorInvertableDisplay display)
     {
@@ -80,7 +80,7 @@ public class DisplayController
         var image = Image.LoadFromResource("WifiWeather.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, DisplayScreen.Width, DisplayScreen.Height, image)
         {
-            BackColor = Color.FromHex("#14607F"),
+            BackgroundColor = Color.FromHex("#14607F"),
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -115,7 +115,7 @@ public class DisplayController
             44,
             14)
         {
-            ForeColor = foregroundColor,
+            ForegroundColor = foregroundColor,
             IsFilled = false
         });
 
@@ -203,7 +203,7 @@ public class DisplayController
             columnWidth,
             rowHeight)
         {
-            ForeColor = outdoorColor
+            ForegroundColor = outdoorColor
         };
         DataLayout.Controls.Add(TemperatureBox);
         TemperatureLabel = new Label(
@@ -238,7 +238,7 @@ public class DisplayController
             columnWidth,
             rowHeight)
         {
-            ForeColor = backgroundColor
+            ForegroundColor = backgroundColor
         };
         DataLayout.Controls.Add(PressureBox);
         PressureLabel = new Label(
@@ -273,7 +273,7 @@ public class DisplayController
             columnWidth,
             rowHeight)
         {
-            ForeColor = backgroundColor
+            ForegroundColor = backgroundColor
         };
         DataLayout.Controls.Add(HumidityBox);
         HumidityLabel = new Label(
@@ -373,24 +373,24 @@ public class DisplayController
 
     private void UpdateReadingType(int type)
     {
-        TemperatureBox.ForeColor = PressureBox.ForeColor = HumidityBox.ForeColor = backgroundColor;
+        TemperatureBox.ForegroundColor = PressureBox.ForegroundColor = HumidityBox.ForegroundColor = backgroundColor;
         TemperatureLabel.TextColor = PressureLabel.TextColor = HumidityLabel.TextColor = foregroundColor;
         TemperatureValue.TextColor = PressureValue.TextColor = HumidityValue.TextColor = foregroundColor;
 
         switch (type)
         {
             case 0:
-                TemperatureBox.ForeColor = outdoorColor;
+                TemperatureBox.ForegroundColor = outdoorColor;
                 TemperatureLabel.TextColor = backgroundColor;
                 TemperatureValue.TextColor = backgroundColor;
                 break;
             case 1:
-                PressureBox.ForeColor = outdoorColor;
+                PressureBox.ForegroundColor = outdoorColor;
                 PressureLabel.TextColor = backgroundColor;
                 PressureValue.TextColor = backgroundColor;
                 break;
             case 2:
-                HumidityBox.ForeColor = outdoorColor;
+                HumidityBox.ForegroundColor = outdoorColor;
                 HumidityLabel.TextColor = backgroundColor;
                 HumidityValue.TextColor = backgroundColor;
                 break;

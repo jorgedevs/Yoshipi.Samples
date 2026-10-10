@@ -1,9 +1,9 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Foundation.Hmi;
-using Meadow.Hardware;
-using Meadow.Peripherals.Displays;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Graphics.Hmi;
+using FieldStack.Hardware;
+using FieldStack.Peripherals.Displays;
 using System;
 using System.IO;
 using System.Threading;
@@ -19,7 +19,6 @@ public class DisplayController
     public event EventHandler<bool> Relay3Toggled = default!;
 
     private readonly int rowHeight = 60;
-    private readonly int rowMargin = 15;
 
     private IColorInvertableDisplay display;
     private ICalibratableTouchscreen touchscreen;
@@ -39,13 +38,13 @@ public class DisplayController
 
     private DisplayScreen displayScreen;
 
-    private AbsoluteLayout splashLayout;
-    private AbsoluteLayout dataLayout;
+    private AbsoluteLayout splashLayout = null!;
+    private AbsoluteLayout dataLayout = null!;
 
-    private Button relay0Button;
-    private Button relay1Button;
-    private Button relay2Button;
-    private Button relay3Button;
+    private Button relay0Button = null!;
+    private Button relay1Button = null!;
+    private Button relay2Button = null!;
+    private Button relay3Button = null!;
 
     private bool isRelay0On;
     private bool isRelay1On;
@@ -100,7 +99,7 @@ public class DisplayController
         var image = Image.LoadFromResource("GroveRelayController.Resources.img_meadow.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
-            BackColor = backgroundColor,
+            BackgroundColor = backgroundColor,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
         };
@@ -116,7 +115,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, displayScreen.Width, rowHeight)
         {
-            ForeColor = shadowColor
+            ForegroundColor = shadowColor
         });
 
         dataLayout.Controls.Add(new Label(0, 20, displayScreen.Width, 20)
@@ -129,7 +128,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, rowHeight, displayScreen.Width, displayScreen.Height - rowHeight)
         {
-            ForeColor = backgroundColor
+            ForegroundColor = backgroundColor
         });
 
         int relayWidth = 71;
@@ -145,7 +144,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -172,7 +171,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -199,7 +198,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor
@@ -226,7 +225,7 @@ public class DisplayController
             relayHeight)
         {
             Image = relayOff,
-            ForeColor = foreColor,
+            ForegroundColor = foreColor,
             PressedColor = pressedColor,
             HighlightColor = highlightColor,
             ShadowColor = shadowColor

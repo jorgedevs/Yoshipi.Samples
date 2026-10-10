@@ -1,6 +1,6 @@
 ﻿using GroveRelayController.Controllers;
 using GroveRelayController.Hardware;
-using Meadow.Peripherals.Relays;
+using FieldStack.Peripherals.Relays;
 using System.Threading.Tasks;
 
 namespace GroveRelayController;

@@ -1,8 +1,8 @@
-﻿using Meadow;
-using Meadow.Foundation.Graphics;
-using Meadow.Foundation.Graphics.MicroLayout;
-using Meadow.Peripherals.Displays;
-using Meadow.Units;
+using FieldStack;
+using FieldStack.Graphics;
+using FieldStack.Graphics.MicroLayout;
+using FieldStack.Peripherals.Displays;
+using FieldStack.Units;
 using System.Collections.Generic;
 
 namespace TankTemperatureMonitor;
@@ -32,7 +32,6 @@ public class DisplayController
     private Label status;
     private Label latestReading;
     private Label axisLabels;
-    private Label connectionErrorLabel;
     private Label temperatureLabel;
 
     private readonly DisplayScreen dataLayout;
@@ -48,7 +47,7 @@ public class DisplayController
 
         dataLayout.Controls.Add(new Box(0, 0, dataLayout.Width, rowHeight)
         {
-            ForeColor = foregroundColor
+            ForegroundColor = foregroundColor
         });
 
         status = new Label(margin, 15, dataLayout.Width / 2, 20)
@@ -75,7 +74,7 @@ public class DisplayController
             dataLayout.Width - margin * 2,
             graphHeight + axisLabelsHeight + 20)
         {
-            ForeColor = foregroundColor
+            ForegroundColor = foregroundColor
         });
 
         lineChart = new LineChart(
@@ -109,7 +108,7 @@ public class DisplayController
         {
             Text = "Y: Celcius | X: Every hour",
             TextColor = TextColor,
-            BackColor = foregroundColor,
+            BackgroundColor = foregroundColor,
             Font = font6x8,
             VerticalAlignment = VerticalAlignment.Top,
             HorizontalAlignment = HorizontalAlignment.Center

@@ -1,4 +1,4 @@
-<img src="Design/yoshipi-samples-banner.jpg"  alt="Meadow.ProjectLab, C#, iot" style="margin-bottom:10px" />
+<img src="Design/yoshipi-samples-banner.jpg"  alt="FieldStack, C#, iot, raspberrypi, yoshipi" style="margin-bottom:10px" />
 
 # Yoshipi.Samples
 
@@ -7,19 +7,14 @@ Project Samples:
 <table>
     <tr>
         <td>
-            <img src="Design/raspberrypi-yoshipi-hello.jpg" alt="Raspberry Pi YoshiPi running basic sample Meadow app"/><br/>
+            <img src="Design/raspberrypi-yoshipi-hello.jpg" alt="Raspberry Pi YoshiPi running a basic FieldStack app"/><br/>
             Basic YoshiPi app with a touch-capable display</br> 
             <a href="Source/HelloYoshipi/">Source Code</a>
         </td>
         <td>
             <img src="Design/raspberrypi-yoshipi-wifiweather.jpg" alt="Raspberry Pi YoshiPi geting weather forecast"/><br/>
-            Get weather forecast using Meadow on a YoshiPi</br> 
+            Get weather forecast using FieldStack on a YoshiPi</br> 
             <a href="Source/WifiWeather/">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/raspberrypi-yoshipi-meadowcloud-logging.jpg" alt="Raspberry Pi YoshiPi meadow cloud logging"/><br/>
-            Send telemetry data to Meadow.Cloud on a YoshiPi</br> 
-            <a href="Source/MeadowCloudLogging/">Source Code</a>
         </td>
     </tr>
     <tr>
@@ -32,11 +27,6 @@ Project Samples:
             <img src="Design/raspberrypi-yoshipi-meadow-touch-relay.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
             Control a 4-channel relay on an interactive HMI with a touchscreen</br> 
             <a href="Source/GroveRelayController/">Source Code</a>
-        </td>
-        <td>
-            <img src="Design/raspberrypi-yoshipi-meadow-cloud-command.jpg" alt="Raspberry Pi YoshiPi meadow cloud command control"/><br/>
-            Control a 4-channel relay using Commands from Meadow.Cloud</br> 
-            <a href="Source/MeadowCloudCommands/">Source Code</a>
         </td>
     </tr>
         <tr>
@@ -64,3 +54,26 @@ Project Samples:
 </table>
 
 [![Main Branch](https://github.com/jorgedevs/Yoshipi.Samples/actions/workflows/build.yml/badge.svg)](https://github.com/jorgedevs/Yoshipi.Samples/actions/workflows/build.yml) 
+
+## Building
+
+Samples reference [FieldStack](https://github.com/FieldStackIoT/FieldStack) by project path, so clone the two repositories side by side:
+
+```
+git clone https://github.com/FieldStackIoT/FieldStack
+git clone https://github.com/jorgedevs/Yoshipi.Samples
+```
+
+Build everything:
+
+```
+dotnet build Source/Yoshipi.Samples.slnx -c Release
+```
+
+Publish one sample and copy the folder to the YoshiPi. Publish puts a `run` script beside the app; it sets `HOME=/data` and starts the app.
+
+```
+dotnet publish Source/HelloYoshipi -c Release -o publish
+```
+
+Each sample carries its own copy of the board support (display, buttons, touchscreen, relays, Qwiic) in its `YoshiPi.cs`.

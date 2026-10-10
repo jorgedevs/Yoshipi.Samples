@@ -35,6 +35,11 @@ Project Samples:
             Swap Simulated Temp/Humidity sensor to an HTU21D</br>
             <a href="Source/SensorsSample/">Source Code</a>
         </td>
+        <td valign="top">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            Log and graph a tank's temperature with an MCP9601 thermocouple</br>
+            <a href="Source/TankTemperatureMonitor/">Source Code</a>
+        </td>
     </tr>
 </table>
 

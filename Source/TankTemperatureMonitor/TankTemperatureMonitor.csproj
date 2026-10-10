@@ -5,10 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="..\Common\YoshiPi.cs" Link="YoshiPi.cs" />
-    </ItemGroup>
-    
-    <ItemGroup>
         <None Remove="Resources\image.bmp" />
     </ItemGroup>
     

@@ -76,4 +76,4 @@ Publish one sample and copy the folder to the YoshiPi. Publish puts a `run` scri
 dotnet publish Source/HelloYoshipi -c Release -o publish
 ```
 
-The board support (display, buttons, touchscreen, relays, Qwiic) is in [`Source/Common/YoshiPi.cs`](Source/Common/YoshiPi.cs), shared by every sample.
+Each sample carries its own copy of the board support (display, buttons, touchscreen, relays, Qwiic) in its `YoshiPi.cs`.

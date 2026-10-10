@@ -29,26 +29,11 @@ Project Samples:
             <a href="Source/GroveRelayController/">Source Code</a>
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             <img src="Design/raspberrypi-yoshipi-sensors-sample.jpg" alt="Raspberry Pi YoshiPi HTU21D temperature and humidity monitor"/><br/>
             Swap Simulated Temp/Humidity sensor to an HTU21D</br>
             <a href="Source/SensorsSample/">Source Code</a>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </td>
-        <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        </td>
-        <td>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </td>
     </tr>
 </table>

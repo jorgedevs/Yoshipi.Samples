@@ -96,7 +96,7 @@ public class DisplayController
     {
         splashLayout = new AbsoluteLayout(0, 0, displayScreen.Width, displayScreen.Height);
 
-        var image = Image.LoadFromResource("GroveRelayController.Resources.img_meadow.bmp");
+        var image = Image.LoadFromResource("GroveRelayController.Resources.img_splash.bmp");
         var displayImage = new Picture(0, 0, displayScreen.Width, displayScreen.Height, image)
         {
             BackgroundColor = backgroundColor,

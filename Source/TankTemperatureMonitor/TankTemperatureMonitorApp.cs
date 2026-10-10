@@ -30,7 +30,7 @@ public class TankTemperatureMonitorApp : App<RaspberryPi>
         displayController!.UpdateStatus("Sending data...");
         Thread.Sleep(2000);
 
-        // Meadow.Cloud has no FieldStack equivalent; the reading goes to the application log.
+        // There is no cloud logging in this sample; the reading goes to the application log.
         Resolver.Log.Info($"tank temperature: {e.TemperatureHot!.Value.Celsius:N2}C");
 
         displayController.UpdateTemperature(e.TemperatureHot!.Value);

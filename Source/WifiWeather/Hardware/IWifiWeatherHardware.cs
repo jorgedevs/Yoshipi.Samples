@@ -6,11 +6,11 @@ namespace WifiWeather.Hardware;
 
 public interface IWifiWeatherHardware
 {
-    IButton? LeftButton { get; }
+    IButton LeftButton { get; }
 
-    IButton? RightButton { get; }
+    IButton RightButton { get; }
 
-    IColorInvertableDisplay? Display { get; }
+    IColorInvertableDisplay Display { get; }
 
-    INetworkAdapter? NetworkAdapter { get; }
+    INetworkAdapter NetworkAdapter { get; }
 }

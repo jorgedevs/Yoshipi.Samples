@@ -19,7 +19,6 @@ public class DisplayController
     public event EventHandler<bool> Relay3Toggled = default!;
 
     private readonly int rowHeight = 60;
-    private readonly int rowMargin = 15;
 
     private IColorInvertableDisplay display;
     private ICalibratableTouchscreen touchscreen;
@@ -39,13 +38,13 @@ public class DisplayController
 
     private DisplayScreen displayScreen;
 
-    private AbsoluteLayout splashLayout;
-    private AbsoluteLayout dataLayout;
+    private AbsoluteLayout splashLayout = null!;
+    private AbsoluteLayout dataLayout = null!;
 
-    private Button relay0Button;
-    private Button relay1Button;
-    private Button relay2Button;
-    private Button relay3Button;
+    private Button relay0Button = null!;
+    private Button relay1Button = null!;
+    private Button relay2Button = null!;
+    private Button relay3Button = null!;
 
     private bool isRelay0On;
     private bool isRelay1On;

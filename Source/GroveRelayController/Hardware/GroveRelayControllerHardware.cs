@@ -11,11 +11,11 @@ public class GroveRelayControllerHardware : IGroveRelayControllerHardware
     private readonly ICalibratableTouchscreen? touchscreen;
     private readonly FourChannelSpdtRelay? fourChannelRelay;
 
-    public IColorInvertableDisplay? Display => display;
+    public IColorInvertableDisplay Display => display!;
 
-    public ICalibratableTouchscreen? Touchscreen => touchscreen;
+    public ICalibratableTouchscreen Touchscreen => touchscreen!;
 
-    public FourChannelSpdtRelay? FourChannelRelay => fourChannelRelay;
+    public FourChannelSpdtRelay FourChannelRelay => fourChannelRelay!;
 
     public GroveRelayControllerHardware(YoshiPi yoshiPi)
     {

@@ -32,7 +32,6 @@ public class DisplayController
     private Label status;
     private Label latestReading;
     private Label axisLabels;
-    private Label connectionErrorLabel;
     private Label temperatureLabel;
 
     private readonly DisplayScreen dataLayout;

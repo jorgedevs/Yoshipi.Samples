@@ -27,32 +27,32 @@ public class DisplayController
     private readonly int row3 = 205;
     private Image weatherIcon = Image.LoadFromResource($"WifiWeather.Resources.w_misc.bmp");
 
-    public LineChartSeries OutdoorSeries;
+    public LineChartSeries OutdoorSeries = null!;
     private DisplayScreen DisplayScreen;
-    private AbsoluteLayout SplashLayout;
-    private AbsoluteLayout DataLayout;
-    private LineChart LineChart;
-    private Picture WifiStatus;
-    private Picture SyncStatus;
-    private Picture Weather;
-    private Label Status;
-    private Label Counter;
+    private AbsoluteLayout SplashLayout = null!;
+    private AbsoluteLayout DataLayout = null!;
+    private LineChart LineChart = null!;
+    private Picture WifiStatus = null!;
+    private Picture SyncStatus = null!;
+    private Picture Weather = null!;
+    private Label Status = null!;
+    private Label Counter = null!;
 
-    private Box TemperatureBox;
-    private Label TemperatureLabel;
-    private Label TemperatureValue;
+    private Box TemperatureBox = null!;
+    private Label TemperatureLabel = null!;
+    private Label TemperatureValue = null!;
 
-    private Box PressureBox;
-    private Label PressureLabel;
-    private Label PressureValue;
+    private Box PressureBox = null!;
+    private Label PressureLabel = null!;
+    private Label PressureValue = null!;
 
-    private Box HumidityBox;
-    private Label HumidityLabel;
-    private Label HumidityValue;
+    private Box HumidityBox = null!;
+    private Label HumidityLabel = null!;
+    private Label HumidityValue = null!;
 
-    private Label FeelsLike;
-    private Label Sunrise;
-    private Label Sunset;
+    private Label FeelsLike = null!;
+    private Label Sunrise = null!;
+    private Label Sunset = null!;
 
     public DisplayController(IColorInvertableDisplay display)
     {

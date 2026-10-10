@@ -15,7 +15,7 @@ public class DisplayController
     private IColorInvertableDisplay display;
     private ICalibratableTouchscreen touchscreen;
     private DisplayScreen displayScreen;
-    private Label label;
+    private Label label = null!;
 
     private int count = 0;
 
@@ -96,7 +96,7 @@ public class DisplayController
         displayScreen.Controls.Add(button);
     }
 
-    private void ButtonClicked(object sender, EventArgs e)
+    private void ButtonClicked(object? sender, EventArgs e)
     {
         count++;
         string message = $"Clicked {count} times!";

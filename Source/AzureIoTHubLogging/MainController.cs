@@ -12,11 +12,11 @@ namespace AzureIoTHubLogging;
 
 public class MainController
 {
-    private IAzureIoTHubLoggingHardware? hardware;
-    private SensorController sensorController;
-    private DisplayController displayController;
-    private InputController inputController;
-    private IoTHubMqttController iotHubController;
+    private IAzureIoTHubLoggingHardware hardware;
+    private SensorController sensorController = null!;
+    private DisplayController displayController = null!;
+    private InputController inputController = null!;
+    private IoTHubMqttController iotHubController = null!;
 
     private int currentGraphType = 0;
 
@@ -79,7 +79,7 @@ public class MainController
         }
     }
 
-    private async void SensorControllerUpdated(object sender, AtmosphericConditions e)
+    private async void SensorControllerUpdated(object? sender, AtmosphericConditions e)
     {
         displayController.UpdateWiFiStatus(hardware.NetworkAdapter.IsConnected);
 
@@ -125,13 +125,13 @@ public class MainController
         displayController.UpdateStatus(DateTime.Now.ToString("hh:mm tt dd/MM/yy"));
     }
 
-    private void LeftButtonPressed(object sender, EventArgs e)
+    private void LeftButtonPressed(object? sender, EventArgs e)
     {
         currentGraphType = currentGraphType - 1 < 0 ? 2 : currentGraphType - 1;
 
         UpdateGraph();
     }
-    private void RightButtonPressed(object sender, EventArgs e)
+    private void RightButtonPressed(object? sender, EventArgs e)
     {
         currentGraphType = currentGraphType + 1 > 2 ? 0 : currentGraphType + 1;
 

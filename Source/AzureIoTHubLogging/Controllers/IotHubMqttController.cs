@@ -14,7 +14,7 @@ public class IoTHubMqttController
     string IOT_HUB_DEVICE_ID = Secrets.DEVICE_ID;
     string IOT_HUB_SAS_TOKEN = Secrets.SAS_TOKEN;
 
-    IMqttClient mqttClient;
+    IMqttClient mqttClient = null!;
 
     public bool isAuthenticated { get; private set; }
 
@@ -58,7 +58,7 @@ public class IoTHubMqttController
         }
     }
 
-    public async Task SendEnvironmentalReading(Temperature? Temperature, RelativeHumidity? Humidity, Pressure? Pressure)
+    public async Task SendEnvironmentalReading(Temperature Temperature, RelativeHumidity Humidity, Pressure Pressure)
     {
         try
         {
@@ -66,9 +66,9 @@ public class IoTHubMqttController
 
             string messagePayload = $"" +
                 $"{{" +
-                $"\"temperature\":{Temperature.Value.Celsius}," +
-                $"\"humidity\":{Humidity.Value.Percent}," +
-                $"\"pressure\":{Pressure.Value.Millibar}" +
+                $"\"temperature\":{Temperature.Celsius}," +
+                $"\"humidity\":{Humidity.Percent}," +
+                $"\"pressure\":{Pressure.Millibar}" +
                 $"}}";
 
             Resolver.Log.Info("Create message");
@@ -79,7 +79,7 @@ public class IoTHubMqttController
 
             await mqttClient.PublishAsync(mqttMessage, new System.Threading.CancellationToken());
 
-            Resolver.Log.Info($"*** MQTT - DATA SENT: Temperature - {Temperature.Value.Celsius:N2}°C, Humidity - {Humidity.Value.Percent:N2}%, Pressure - {Pressure.Value.Millibar:N2}mbar ***");
+            Resolver.Log.Info($"*** MQTT - DATA SENT: Temperature - {Temperature.Celsius:N2}°C, Humidity - {Humidity.Percent:N2}%, Pressure - {Pressure.Millibar:N2}mbar ***");
         }
         catch (Exception ex)
         {

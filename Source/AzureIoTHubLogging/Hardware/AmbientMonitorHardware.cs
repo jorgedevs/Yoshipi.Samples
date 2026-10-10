@@ -23,15 +23,15 @@ public class AzureIoTHubLoggingHardware : IAzureIoTHubLoggingHardware
 
     public IButton? RightButton => rightButton;
 
-    public IColorInvertableDisplay? Display => display;
+    public IColorInvertableDisplay Display => display!;
 
-    public INetworkAdapter? NetworkAdapter => networkAdapter;
+    public INetworkAdapter NetworkAdapter => networkAdapter!;
 
-    public ITemperatureSensor? TemperatureSensor => temperatureSensor;
+    public ITemperatureSensor TemperatureSensor => temperatureSensor!;
 
-    public IBarometricPressureSensor? BarometricPressureSensor => barometricPressureSensor;
+    public IBarometricPressureSensor BarometricPressureSensor => barometricPressureSensor!;
 
-    public IHumiditySensor? HumiditySensor => humiditySensor;
+    public IHumiditySensor HumiditySensor => humiditySensor!;
 
     public AzureIoTHubLoggingHardware(YoshiPi yoshiPi, INetworkAdapter? networkAdapter)
     {

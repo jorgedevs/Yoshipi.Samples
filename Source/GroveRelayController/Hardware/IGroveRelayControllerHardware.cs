@@ -6,9 +6,9 @@ namespace GroveRelayController.Hardware;
 
 public interface IGroveRelayControllerHardware
 {
-    IColorInvertableDisplay? Display { get; }
+    IColorInvertableDisplay Display { get; }
 
-    ICalibratableTouchscreen? Touchscreen { get; }
+    ICalibratableTouchscreen Touchscreen { get; }
 
-    FourChannelSpdtRelay? FourChannelRelay { get; }
+    FourChannelSpdtRelay FourChannelRelay { get; }
 }

@@ -12,13 +12,13 @@ public interface IAzureIoTHubLoggingHardware
 
     IButton? RightButton { get; }
 
-    IColorInvertableDisplay? Display { get; }
+    IColorInvertableDisplay Display { get; }
 
-    INetworkAdapter? NetworkAdapter { get; }
+    INetworkAdapter NetworkAdapter { get; }
 
-    ITemperatureSensor? TemperatureSensor { get; }
+    ITemperatureSensor TemperatureSensor { get; }
 
-    IBarometricPressureSensor? BarometricPressureSensor { get; }
+    IBarometricPressureSensor BarometricPressureSensor { get; }
 
-    IHumiditySensor? HumiditySensor { get; }
+    IHumiditySensor HumiditySensor { get; }
 }

@@ -24,22 +24,22 @@ public class DisplayController
 
     private DisplayScreen displayScreen;
 
-    private AbsoluteLayout splashLayout;
-    private AbsoluteLayout dataLayout;
+    private AbsoluteLayout splashLayout = null!;
+    private AbsoluteLayout dataLayout = null!;
 
-    private LineChartSeries lineChartSeries;
-    private LineChart lineChart;
+    private LineChartSeries lineChartSeries = null!;
+    private LineChart lineChart = null!;
 
-    private Picture wifiStatus;
-    private Picture syncStatus;
+    private Picture wifiStatus = null!;
+    private Picture syncStatus = null!;
 
-    private Label status;
-    private Label latestReading;
-    private Label axisLabels;
-    private Label temperature;
-    private Label pressure;
-    private Label humidity;
-    private Label connectionErrorLabel;
+    private Label status = null!;
+    private Label latestReading = null!;
+    private Label axisLabels = null!;
+    private Label temperature = null!;
+    private Label pressure = null!;
+    private Label humidity = null!;
+    private Label connectionErrorLabel = null!;
 
     public DisplayController(IColorInvertableDisplay display)
     {

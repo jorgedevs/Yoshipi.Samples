@@ -12,13 +12,13 @@ public class WifiWeatherHardware : IWifiWeatherHardware
     private readonly IColorInvertableDisplay? display;
     private readonly INetworkAdapter? networkAdapter;
 
-    public IButton? LeftButton => leftButton;
+    public IButton LeftButton => leftButton!;
 
-    public IButton? RightButton => rightButton;
+    public IButton RightButton => rightButton!;
 
-    public IColorInvertableDisplay? Display => display;
+    public IColorInvertableDisplay Display => display!;
 
-    public INetworkAdapter? NetworkAdapter => networkAdapter;
+    public INetworkAdapter NetworkAdapter => networkAdapter!;
 
     public WifiWeatherHardware(YoshiPi yoshiPi, INetworkAdapter? networkAdapter)
     {

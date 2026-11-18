@@ -1,4 +1,4 @@
-<img src="Design/yoshipi-samples-banner.jpg"  alt="FieldStack, C#, iot, raspberrypi, yoshipi" style="margin-bottom:10px" />
+<img src="Design/yoshipi-samples-banner.png"  alt="FieldStack, C#, iot, raspberrypi, yoshipi" style="margin-bottom:10px" />
 
 # Yoshipi.Samples
 
